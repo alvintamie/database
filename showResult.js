@@ -115,6 +115,7 @@ function listenClick(_clickX, _clickY, _ind, _obj, _check)
 
 function listenAllClick(_clickX, _clickY, _ind)
 {
+	console.log("listen Jalan");
 	for (obj in c_obj[zoom])
 	{
 		listenClick(_clickX, _clickY, _ind, obj, checkSquare)
