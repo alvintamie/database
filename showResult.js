@@ -17,7 +17,7 @@ function clusterObj(_objArr, _zoom)
 		multiplier *= 2;
 	}
 	
-	multiplier *= 20;
+	multiplier *= 5;
 		
 	for (i=0; i<_objArr.length;++i)
 	{
@@ -51,15 +51,15 @@ function showResult(_ind, _objArr)
 	//var arr = clusterObj(obj);
 	for (i=0;i<=2;++i)
 	{
-		c_obj[i] = clusterObj(_objArr,i)[0];
-		showCoord[i] = clusterObj(_objArr,i)[1];
+		c_obj.push(clusterObj(_objArr,i)[0]);
+		showCoord.push(clusterObj(_objArr,i)[1]);
 	}
 	
 	for (i=0;i<showCoord[zoom].length;++i)
 	{
 		//drawObject(imgObject[ind],coordList[i][0], coordList[i][1]);
 		//drawText(c_obj[coordList[i][0]+":"+coordList[i][1]], coordList[i][0], coordList[i][1]);
-		addCanvasObject(showCoord[zoom][i][0],showCoord[zoom][i][1], _ind);
+		addCanvasObject(showCoord[zoom][i][0]/4,showCoord[zoom][i][1]/4, _ind);
 	//	if (_ind == searchIndex) addCanvasObjectAuthor(getX(authorObject.city,authorObject.country),getY(authorObject.city,authorObject.country),authorIndex);
 	}
 }
@@ -72,7 +72,7 @@ function refreshShow()
 	{
 		//drawObject(imgObject[ind],coordList[i][0], coordList[i][1]);
 		//drawText(c_obj[coordList[i][0]+":"+coordList[i][1]], coordList[i][0], coordList[i][1]);
-		addCanvasObject(showCoord[zoom][i][0],showCoord[zoom][i][1], ind);
+		addCanvasObject(showCoord[zoom][i][0]/4,showCoord[zoom][i][1]/4, ind);
 		//if (ind == searchIndex) addCanvasObjectAuthor(getX(authorObject.city,authorObject.country),getY(authorObject.city,authorObject.country),authorIndex);
 	}
 }
