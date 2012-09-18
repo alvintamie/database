@@ -49,6 +49,7 @@ function showResult(_ind, _objArr)
 {
 	var i;
 	clearCanvasObject();
+	console.log("HIHIHIHIHIHI");
 	
 	//var arr = clusterObj(obj);
 	for (i=0;i<=2;++i)
