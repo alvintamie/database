@@ -21,7 +21,7 @@ function clusterObj(_objArr, _zoom)
 		
 	for (i=0; i<_objArr.length;++i)
 	{
-		console.log(_objArr[i].country);
+		console.log("HAHAHA: "+_objArr[i].country);
 		if (getX(_objArr[i].city, _objArr[i].country) != null)
 		{
 			var x1 = Math.floor( getX(_objArr[i].city,_objArr[i].country ) / multiplier)*multiplier;
