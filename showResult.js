@@ -70,7 +70,7 @@ function refreshShow()
 		//drawObject(imgObject[ind],coordList[i][0], coordList[i][1]);
 		//drawText(c_obj[coordList[i][0]+":"+coordList[i][1]], coordList[i][0], coordList[i][1]);
 		addCanvasObject(showCoord[zoom][i][0],showCoord[zoom][i][1], ind);
-		if (ind == searchIndex) addCanvasObjectAuthor(getX(authorObject.city,authorObject.country),getY(authorObject.city,authorObject.country),authorIndex);
+		//if (ind == searchIndex) addCanvasObjectAuthor(getX(authorObject.city,authorObject.country),getY(authorObject.city,authorObject.country),authorIndex);
 	}
 }
 
