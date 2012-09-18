@@ -10,6 +10,7 @@ function clusterObj(_objArr, _zoom)
 	var _c_obj = new Array();
 	var coordList = new Array();
 	var stemp;
+	var multiplier = 1;
 	var i;
 	
 	for (i=2; i>zoom;i--)
@@ -26,7 +27,7 @@ function clusterObj(_objArr, _zoom)
 		{
 			var x1 = Math.floor( getX(_objArr[i].city,_objArr[i].country ) / multiplier)*multiplier;
 			var y1 = Math.floor( getY(_objArr[i].city,_objArr[i].country ) / multiplier)*multiplier;
-			console.log("HIHIHI " + getX(_objArr[i].city,_objArr[i].country ));
+			console.log("HIHIHI " + x1);
 			_objArr[i].x = x1;
 			_objArr[i].y = y1;
 			
