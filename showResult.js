@@ -51,6 +51,7 @@ function showResult(_ind, _objArr)
 {
 	var i;
 	clearCanvasObject();
+	canvasObjectText = [];
 	//console.log("HIHIHIHIHIHI");
 	
 	//var arr = clusterObj(obj);
@@ -75,6 +76,7 @@ function refreshShow()
 {
 	var i;
 	clearCanvasObject();
+	canvasObjectText = [];
 	for (i=0;i<showCoord[zoom].length;++i)
 	{
 		//drawObject(imgObject[ind],coordList[i][0], coordList[i][1]);
