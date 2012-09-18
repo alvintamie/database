@@ -10,6 +10,7 @@ function clusterObj(_objArr, _zoom)
 	var _c_obj = new Array();
 	var coordList = new Array();
 	var stemp;
+	var i;
 	
 	for (i=2; i>zoom;i--)
 	{
@@ -45,6 +46,7 @@ function clusterObj(_objArr, _zoom)
 
 function showResult(_ind, _objArr)
 {
+	var i;
 	clearCanvasObject();
 	//var arr = clusterObj(obj);
 	for (i=0;i<=2;++i)
@@ -64,6 +66,7 @@ function showResult(_ind, _objArr)
 
 function refreshShow()
 {
+	var i;
 	clearCanvasObject();
 	for (i=0;i<showCoord[zoom].length;++i)
 	{
