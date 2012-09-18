@@ -113,7 +113,7 @@ function getObject(_name)
 		return country[countryIndex[name]];
 	else 
 	{
-		console.log("No object found!\n");
+		//console.log("Can't find object" + _name + '\n");
 		return null;
 	}
 }
@@ -129,7 +129,7 @@ function getX (_city, _country)
 	else if (getObject(_city+"null") != null) return getObject(_city + _country).x;
 	else 
 	{
-		console.log("No country and city specified");
+		//console.log("No country and city specified");
 		return null;
 	}
 }
