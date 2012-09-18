@@ -1,4 +1,4 @@
-var searchIndex = 15;
+var searchIndex = 0;
 var authorIndex = 10;
 var c_obj = new Array();
 var showCoord = new Array();
@@ -65,7 +65,8 @@ function showResult(_ind, _objArr)
 		//drawObject(imgObject[ind],coordList[i][0], coordList[i][1]);
 		//drawText(c_obj[coordList[i][0]+":"+coordList[i][1]], coordList[i][0], coordList[i][1]);
 		addCanvasObject(showCoord[zoom][i][0]/4,showCoord[zoom][i][1]/4, _ind);
-	//	if (_ind == searchIndex) addCanvasObjectAuthor(getX(authorObject.city,authorObject.country),getY(authorObject.city,authorObject.country),authorIndex);
+		if (_ind == searchIndex) addCanvasObjectAuthor(getX(authorObject.city,authorObject.country),getY(authorObject.city,authorObject.country),authorIndex);
+		
 	}
 }
 
@@ -78,7 +79,7 @@ function refreshShow()
 		//drawObject(imgObject[ind],coordList[i][0], coordList[i][1]);
 		//drawText(c_obj[coordList[i][0]+":"+coordList[i][1]], coordList[i][0], coordList[i][1]);
 		addCanvasObject(showCoord[zoom][i][0]/4,showCoord[zoom][i][1]/4, ind);
-		//if (ind == searchIndex) addCanvasObjectAuthor(getX(authorObject.city,authorObject.country),getY(authorObject.city,authorObject.country),authorIndex);
+		if (ind == searchIndex) addCanvasObjectAuthor(getX(authorObject.city,authorObject.country),getY(authorObject.city,authorObject.country),authorIndex);
 	}
 }
 
