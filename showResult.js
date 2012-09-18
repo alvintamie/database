@@ -1,5 +1,5 @@
 var searchIndex = 0;
-var authorIndex = 10;
+var authorIndex = 0;
 var c_obj = new Array();
 var showCoord = new Array();
 
@@ -51,7 +51,7 @@ function showResult(_ind, _objArr)
 {
 	var i;
 	clearCanvasObject();
-	console.log("HIHIHIHIHIHI");
+	//console.log("HIHIHIHIHIHI");
 	
 	//var arr = clusterObj(obj);
 	for (i=0;i<=2;++i)
@@ -78,8 +78,10 @@ function refreshShow()
 	{
 		//drawObject(imgObject[ind],coordList[i][0], coordList[i][1]);
 		//drawText(c_obj[coordList[i][0]+":"+coordList[i][1]], coordList[i][0], coordList[i][1]);
-		addCanvasObject(showCoord[zoom][i][0]/4,showCoord[zoom][i][1]/4, ind);
-		if (ind == searchIndex) addCanvasObjectAuthor(getX(authorObject.city,authorObject.country)/4,getY(authorObject.city,authorObject.country)/4,authorIndex);
+		addCanvasObject(showCoord[zoom][i][0]/4,showCoord[zoom][i][1]/4, 0);
+	//	if (ind == searchIndex) addCanvasObjectAuthor(getX(authorObject.city,authorObject.country)/4,getY(authorObject.city,authorObject.country)/4,authorIndex);
+		addCanvasObjectAuthor(getX(authorObject.city,authorObject.country)/4,getY(authorObject.city,authorObject.country)/4,authorIndex);
+
 	}
 }
 
