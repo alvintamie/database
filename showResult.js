@@ -19,6 +19,17 @@ function clusterObj(_objArr, _zoom)
 	}
 	
 	multiplier *= 5;
+	var xAuth= Math.floor( getX(authorObject.city,authorObject.country)/multiplier)*multiplier;
+	var yAuth= Math.floor( getY(authorObject.city,authorObject.country)/multiplier)*multiplier;
+	authorObject.x = xAuth;
+	authorObject.y = yAuth;
+	stemp = xAuth + ":"+yAuth;
+	_c_obj[stemp] = new Array(authorObject);
+	_c_obj[stemp].x = xAuth;
+	_c_obj[stemp].y = yAuth;
+	coordList.push(new Array(xAuth, yAuth));
+	
+	
 		
 	for (i=0; i<_objArr.length;++i)
 	{
@@ -38,8 +49,9 @@ function clusterObj(_objArr, _zoom)
 				_c_obj[stemp] = new Array(_objArr[i]);
 				_c_obj[stemp].x = x1;
 				_c_obj[stemp].y = y1;
+				coordList.push(new Array(x1,y1));
 			}
-			coordList.push(new Array(x1,y1));				
+							
 		}
 	}
 	
@@ -61,15 +73,15 @@ function showResult(_ind, _objArr)
 		showCoord.push(clusterObj(_objArr,i)[1]);
 	}
 	
-	for (i=0;i<showCoord[zoom].length;++i)
+	for (i=1;i<showCoord[zoom].length;++i)
 	{
 		//drawObject(imgObject[ind],coordList[i][0], coordList[i][1]);
 		//drawText(c_obj[coordList[i][0]+":"+coordList[i][1]], coordList[i][0], coordList[i][1]);
 		addCanvasObject(showCoord[zoom][i][0]/4,showCoord[zoom][i][1]/4, _ind);
-		canvasObjectText.push(c_obj[zoom][showCoord[zoom][i][0]+":"+showCoord[zoom][i][1]].length)
-		if (_ind == searchIndex) addCanvasObjectAuthor(getX(authorObject.city,authorObject.country)/4,getY(authorObject.city,authorObject.country)/4,authorIndex);
-		
+		canvasObjectText.push(c_obj[zoom][showCoord[zoom][i][0]+":"+showCoord[zoom][i][1]].length)		
 	}
+	addCanvasObjectAuthor(showCoord[zoom][0][0]/4,showCoord[zoom][0][1]/4, authorIndex)
+	canvasObjectText.push(c_obj[zoom][showCoord[zoom][0][0]+":"+showCoord[zoom][0][1]].length)
 }
 
 function refreshShow()
@@ -84,9 +96,11 @@ function refreshShow()
 		addCanvasObject(showCoord[zoom][i][0]/4,showCoord[zoom][i][1]/4, 0);
 		canvasObjectText.push(c_obj[zoom][showCoord[zoom][i][0]+":"+showCoord[zoom][i][1]].length)
 	//	if (ind == searchIndex) addCanvasObjectAuthor(getX(authorObject.city,authorObject.country)/4,getY(authorObject.city,authorObject.country)/4,authorIndex);
-		addCanvasObjectAuthor(getX(authorObject.city,authorObject.country)/4,getY(authorObject.city,authorObject.country)/4,authorIndex);
+	
 
 	}
+	addCanvasObjectAuthor(showCoord[zoom][0][0]/4,showCoord[zoom][0][1]/4, authorIndex)
+	canvasObjectText.push(c_obj[zoom][showCoord[zoom][0][0]+":"+showCoord[zoom][0][1]].length)
 }
 
 function checkSquare(_clickX, _clickY, _ind, _obj)
