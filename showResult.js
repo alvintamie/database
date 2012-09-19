@@ -87,9 +87,9 @@ function showResult(_ind, _objArr)
 		canvasObjectText.push(c_obj[zoom][showCoord[zoom][i][0]+":"+showCoord[zoom][i][1]].length)		
 	}
 	console.log(showCoord[zoom][0]);
-	addCanvasObjectAuthor(showCoord[zoom][0][0]/4,showCoord[zoom][0][1]/4, authorIndex)
+//	addCanvasObjectAuthor(showCoord[zoom][0][0]/4,showCoord[zoom][0][1]/4, authorIndex)
 //	addCanvasObjectAuthor(getX(authorObject.city, authorObject.country)/4,getY(_objArr[i].city,_objArr[i].country )/4, authorIndex)
-	canvasObjectText.push(c_obj[zoom][showCoord[zoom][0][0]+":"+showCoord[zoom][0][1]].length)
+//	canvasObjectText.push(c_obj[zoom][showCoord[zoom][0][0]+":"+showCoord[zoom][0][1]].length)
 }
 
 function refreshShow()
@@ -133,7 +133,8 @@ function listenClick(_clickX, _clickY, _ind, _obj, _check)
 	if (_check(_clickX, _clickY, _ind, _obj))
 	{
 		console.log(_obj);
-		
+		updateRelevantDocument(_obj,1);
+				
 	}
 }
 
