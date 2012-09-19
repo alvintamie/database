@@ -137,8 +137,8 @@ function listenAllClick(_clickX, _clickY, _ind)
 	//console.log(c_obj);
 	//console.log(showCoord);
 	var i;
-	console.log("cX,Y: " + _clickX*multiply[zoom]+ " " + _clickY*multiply[zoom]);
-	console.log(c_obj[zoom]);
+	//console.log("cX,Y: " + _clickX*multiply[zoom]+ " " + _clickY*multiply[zoom]);
+	//console.log(c_obj[zoom]);
 	for (key in c_obj[zoom])
 	{
 		
