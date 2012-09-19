@@ -136,3 +136,45 @@ function listenAllClick(_clickX, _clickY, _ind)
 	}	
 }
 
+
+function checkSquare(_clickX, _clickY, _ind, _obj)
+{
+	
+	if (_clickX >= _obj.x/multiply[zoom] && _clickX <= _obj.x/multiply[zoom] + imgObject[_ind].width && _clickY >= _obj.y/multiply[zoom] && _clickY <= _obj.y/multiply[zoom] + imgObject[_ind].height) return  true;
+	else return false;
+}
+
+function checkCircle(_clickX, _clickY, _ind, _obj)
+{
+	var radius = img.Object[_ind].width/2;
+	var xCenter = _obj.x/multiply[zoom] + radius;
+	var yCenter = _obj.y/multiply[zoom] + radius;
+	if ( (_clickX-xCenter)*(_clickX-xCenter) + (_clickY-yCenter)*(_clickY-yCenter) <= radius) return true;
+	else return false;
+	
+}
+
+function listenClick(_clickX, _clickY, _ind, _obj, _check)
+{
+	if (_check(_clickX, _clickY, _ind, _obj))
+	{
+		console.log(_obj);
+		
+	}
+}
+
+function listenAllClick(_clickX, _clickY, _ind)
+{
+	//console.log(c_obj);
+	//console.log(showCoord);
+	var i;
+	
+	for (key in c_obj[zoom])
+	{
+		//console.log("cX,Y: " + _clickX*multiplier + " " + _clickY*multiplier + "objX,Y: " + c_obj[zoom][key].x + " " + c_obj[zoom][key].y);
+		//console.log(_ind);
+		listenClick(_clickX, _clickY, _ind, c_obj[zoom][key], checkSquare)
+	}	
+}
+
+
