@@ -140,7 +140,7 @@ function listenAllClick(_clickX, _clickY, _ind)
 	
 	for (key in c_obj[zoom])
 	{
-		//console.log("cX,Y: " + _clickX*multiplier + " " + _clickY*multiplier + "objX,Y: " + c_obj[zoom][key].x + " " + c_obj[zoom][key].y);
+		console.log("cX,Y: " + _clickX*multiplier + " " + _clickY*multiplier + "objX,Y: " + c_obj[zoom][key].x + " " + c_obj[zoom][key].y);
 		//console.log(_ind);
 		listenClick(_clickX, _clickY, _ind, c_obj[zoom][key], checkSquare)
 	}	
