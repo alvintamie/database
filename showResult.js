@@ -1,4 +1,4 @@
-var searchIndex = 0;
+var searchIndex = 1;
 var authorIndex = 0;
 var c_obj = new Array();
 var showCoord = new Array();
@@ -101,7 +101,7 @@ function showResult(_ind, _objArr)
 		canvasObjectText.push(c_obj[zoom][showCoord[zoom][i][0]+":"+showCoord[zoom][i][1]].length)		
 	}
 	console.log(showCoord[zoom][0]);
-	if (_ind != searchIndex)
+	if (_ind == searchIndex)
 	{
 		addCanvasObjectAuthor(showCoord[zoom][0][0]/4,showCoord[zoom][0][1]/4, authorIndex);
 		canvasObjectAuthorText = (c_obj[zoom][showCoord[zoom][0][0]+":"+showCoord[zoom][0][1]].length);
