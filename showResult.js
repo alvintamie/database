@@ -106,40 +106,6 @@ function refreshShow()
 
 function checkSquare(_clickX, _clickY, _ind, _obj)
 {
-	if (_clickX >= _obj.x && _clickX <= _obj.x + imgObject[_ind].width && _clickY >= _obj.y && _clickY <= _obj.y + imgObject[_ind].height) return  true;
-	else return false;
-}
-
-function checkCircle(_clickX, _clickY, _ind, _obj)
-{
-	var radius = img.Object[_ind].width/2;
-	var xCenter = _obj.x + radius;
-	var yCenter = _obj.y + radius;
-	if ( (_clickX-xCenter)*(_clickX-xCenter) + (_clickY-yCenter)*(_clickY-yCenter) <= radius) return true;
-	else return false;
-	
-}
-
-function listenClick(_clickX, _clickY, _ind, _obj, _check)
-{
-	if (_check(_clickX, _clickY, _ind, _obj))
-	{
-		console.log(_obj);
-	}
-}
-
-function listenAllClick(_clickX, _clickY, _ind)
-{
-	console.log("listen Jalan");
-	for (obj in c_obj[zoom])
-	{
-		listenClick(_clickX, _clickY, _ind, obj, checkSquare)
-	}	
-}
-
-
-function checkSquare(_clickX, _clickY, _ind, _obj)
-{
 	
 	if (_clickX >= _obj.x/multiply[zoom] && _clickX <= _obj.x/multiply[zoom] + imgObject[_ind].width && _clickY >= _obj.y/multiply[zoom] && _clickY <= _obj.y/multiply[zoom] + imgObject[_ind].height) return  true;
 	else return false;
