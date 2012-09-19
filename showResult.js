@@ -20,10 +20,10 @@ function clusterObj(_objArr, _zoom, _ind)
 	}
 	
 	multiplier1 *= 20;
-	var x1 = Math.floor( getX(authorObject.city, authorObject.country) / multiplier1)*multiplier1 - Math.floor(imgObject[_ind].width/2);
-	var y1 = Math.floor( getY(authorObject.city,authorObject.country ) / multiplier1)*multiplier1 - Math.floor(imgObject[_ind].height/2);
-	xAuth = authorObject.x;
-	yAuth = authorObject.y ;
+	var xAuth = Math.floor( getX(authorObject.city, authorObject.country) / multiplier1)*multiplier1 - Math.floor(imgObject[_ind].width/2);
+	var yAuth = Math.floor( getY(authorObject.city,authorObject.country ) / multiplier1)*multiplier1 - Math.floor(imgObject[_ind].height/2);
+	authorObject.x = xAuth;
+	authorObject.y = yAuth;
 	stemp = xAuth + ":"+yAuth;
 	_c_obj[stemp] = new Array(authorObject);
 	_c_obj[stemp].x = xAuth;
@@ -137,10 +137,11 @@ function listenAllClick(_clickX, _clickY, _ind)
 	//console.log(c_obj);
 	//console.log(showCoord);
 	var i;
-	
+	console.log("cX,Y: " + _clickX*multiplier + " " + _clickY*multiplier);
+	console.log(c_obj[zoom]);
 	for (key in c_obj[zoom])
 	{
-		console.log("cX,Y: " + _clickX*multiplier + " " + _clickY*multiplier + "objX,Y: " + c_obj[zoom][key].x + " " + c_obj[zoom][key].y);
+		
 		//console.log(_ind);
 		listenClick(_clickX, _clickY, _ind, c_obj[zoom][key], checkSquare)
 	}	
