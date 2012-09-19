@@ -47,14 +47,14 @@ function clusterObj(_objArr, _zoom, _ind)
 			if (_c_obj[stemp] )
 			{
 				_c_obj[stemp].push(_objArr[i]);
-				_c_obj[stemp].index = i;
+				_c_obj[stemp][_c_obj[stemp].length-1].index = i;
 			}
 			else 
 			{
 				_c_obj[stemp] = new Array(_objArr[i]);
 				_c_obj[stemp].x = x1;
 				_c_obj[stemp].y = y1;
-				_c_obj[stemp].index = i;
+				_c_obj[stemp][0].index = i;
 				coordList.push(new Array(x1,y1));
 			}
 							
