@@ -2,6 +2,7 @@ var searchIndex = 0;
 var authorIndex = 0;
 var c_obj = new Array();
 var showCoord = new Array();
+var multiply = new Array(4,2,1);
 
 
 
@@ -10,17 +11,17 @@ function clusterObj(_objArr, _zoom)
 	var _c_obj = new Array();
 	var coordList = new Array();
 	var stemp;
-	var multiplier = 1;
+	var multiplier1 = 1;
 	var i;
 	
-	for (i=2; i>zoom;i--)
+	for (i=2; i>_zoom;i--)
 	{
-		multiplier *= 2;
+		multiplier1 *= 2;
 	}
 	
-	multiplier *= 5;
-	var xAuth= Math.floor( getX(authorObject.city,authorObject.country)/multiplier)*multiplier;
-	var yAuth= Math.floor( getY(authorObject.city,authorObject.country)/multiplier)*multiplier;
+	multiplier1 *= 20;
+	var x1 = Math.floor( getX(_objArr[i].city, _objArr[i].country) / multiplier1)*multiplier1 - Math.floor(imgObject[_ind].width/2);
+			var y1 = Math.floor( getY(_objArr[i].city,_objArr[i].country ) / multiplier1)*multiplier1 - Math.floor(imgObject[_ind].height/2);
 	authorObject.x = xAuth;
 	authorObject.y = yAuth;
 	stemp = xAuth + ":"+yAuth;
@@ -36,8 +37,8 @@ function clusterObj(_objArr, _zoom)
 		//console.log("HAHAHA: "+_objArr[i].country +);
 		if (_objArr[i].country &&  getX(_objArr[i].city, _objArr[i].country) != null)
 		{
-			var x1 = Math.floor( getX(_objArr[i].city,_objArr[i].country ) / multiplier)*multiplier;
-			var y1 = Math.floor( getY(_objArr[i].city,_objArr[i].country ) / multiplier)*multiplier;
+			var x1 = Math.floor( getX(_objArr[i].city, _objArr[i].country) / multiplier1)*multiplier1 - Math.floor(imgObject[_ind].width/2);
+			var y1 = Math.floor( getY(_objArr[i].city,_objArr[i].country ) / multiplier1)*multiplier1 - Math.floor(imgObject[_ind].height/2);
 			//console.log("HIHIHI " + x1);
 			_objArr[i].x = x1;
 			_objArr[i].y = y1;
@@ -89,7 +90,7 @@ function refreshShow()
 	var i;
 	clearCanvasObject();
 	canvasObjectText = [];
-	for (i=0;i<showCoord[zoom].length;++i)
+	for (i=1;i<showCoord[zoom].length;++i)
 	{
 		//drawObject(imgObject[ind],coordList[i][0], coordList[i][1]);
 		//drawText(c_obj[coordList[i][0]+":"+coordList[i][1]], coordList[i][0], coordList[i][1]);
@@ -123,7 +124,7 @@ function listenClick(_clickX, _clickY, _ind, _obj, _check)
 {
 	if (_check(_clickX, _clickY, _ind, _obj))
 	{
-		console.log("nice click" + _obj);
+		console.log(_obj);
 	}
 }
 
