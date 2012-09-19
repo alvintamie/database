@@ -4,7 +4,11 @@ var c_obj = new Array();
 var showCoord = new Array();
 var multiply = new Array(4,2,1);
 
-
+function countryCmp(_objA, _objB)
+{
+	return _objA.country.localeCompare(_objB);
+	
+}
 
 function clusterObj(_objArr, _zoom, _ind)
 {
@@ -60,7 +64,10 @@ function clusterObj(_objArr, _zoom, _ind)
 							
 		}
 	}
-	
+	for (key in _c_obj)
+	{
+		_c_obj[key].sort(countryCmp);
+	}
 	return new Array(_c_obj,coordList);
 }
 
@@ -72,7 +79,7 @@ function showResult(_ind, _objArr)
 	canvasObjectText = [];
 	c_obj = [];
 	showCoord = [];
-	console.log("HIHIHIHIHIHI");
+	//console.log("HIHIHIHIHIHI");
 	
 	//var arr = clusterObj(obj);
 	for (i=0;i<=2;++i)
