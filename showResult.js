@@ -70,6 +70,8 @@ function showResult(_ind, _objArr)
 	var i;
 	clearCanvasObject();
 	canvasObjectText = [];
+	c_obj = [];
+	showCoord = [];
 	console.log("HIHIHIHIHIHI");
 	
 	//var arr = clusterObj(obj);
