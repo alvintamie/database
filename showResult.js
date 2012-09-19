@@ -8,7 +8,7 @@ var multiply = new Array(4,2,1);
 
 function clusterObj(_objArr, _zoom, _ind)
 {
-	var _c_obj = new Array();
+	var _c_obj = new Object();
 	var coordList = new Array();
 	var stemp;
 	var multiplier1 = 1;
@@ -137,6 +137,7 @@ function listenAllClick(_clickX, _clickY, _ind)
 	//console.log(c_obj);
 	//console.log(showCoord);
 	var i;
+	var multiplier = 1;
 	console.log("cX,Y: " + _clickX*multiplier + " " + _clickY*multiplier);
 	console.log(c_obj[zoom]);
 	for (key in c_obj[zoom])
