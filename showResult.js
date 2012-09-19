@@ -6,9 +6,9 @@ var multiply = new Array(4,2,1);
 
 function geoCmp(_objA, _objB)
 {
-	if (_objA.country == _objB.country)
+	if (_objA.country == _objB.country && _objA.city && _objB.city)
 		return _objA.city.localeCompare(_objB.city);
-	else
+	else	if(_objA.country && _objB.country)
 		return _objA.country.localeCompare(_objB.country);
 }
 
