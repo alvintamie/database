@@ -4,10 +4,12 @@ var c_obj = new Array();
 var showCoord = new Array();
 var multiply = new Array(4,2,1);
 
-function countryCmp(_objA, _objB)
+function geoCmp(_objA, _objB)
 {
-	return _objA.country.localeCompare(_objB);
-	
+	if (_objA.country == _objB.country)
+		return _objA.city.localeCompare(_objB.city);
+	else
+		return _objA.country.localeCompare(_objB.country);
 }
 
 function clusterObj(_objArr, _zoom, _ind)
@@ -66,7 +68,7 @@ function clusterObj(_objArr, _zoom, _ind)
 	}
 	for (key in _c_obj)
 	{
-		_c_obj[key].sort(countryCmp);
+		_c_obj[key].sort(geoCmp);
 	}
 	return new Array(_c_obj,coordList);
 }
