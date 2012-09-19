@@ -67,7 +67,7 @@ function showResult(_ind, _objArr)
 	canvasObjectText = [];
 	//console.log("HIHIHIHIHIHI");
 	
-	var arr = clusterObj(obj);
+	//var arr = clusterObj(obj);
 	for (i=0;i<=2;++i)
 	{
 		c_obj.push(clusterObj(_objArr,i,_ind)[0]);
