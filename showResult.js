@@ -20,8 +20,8 @@ function clusterObj(_objArr, _zoom, _ind)
 	}
 	
 	multiplier1 *= 20;
-	var x1 = Math.floor( getX(authObject.city, authObject.country) / multiplier1)*multiplier1 - Math.floor(imgObject[_ind].width/2);
-	var y1 = Math.floor( getY(authObject.city,authObject.country ) / multiplier1)*multiplier1 - Math.floor(imgObject[_ind].height/2);
+	var x1 = Math.floor( getX(authorObject.city, authorObject.country) / multiplier1)*multiplier1 - Math.floor(imgObject[_ind].width/2);
+	var y1 = Math.floor( getY(authorObject.city,authorObject.country ) / multiplier1)*multiplier1 - Math.floor(imgObject[_ind].height/2);
 	authorObject.x = xAuth;
 	authorObject.y = yAuth;
 	stemp = xAuth + ":"+yAuth;
