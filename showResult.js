@@ -34,12 +34,12 @@ function clusterObj(_objArr, _zoom)
 		
 	for (i=0; i<_objArr.length;++i)
 	{
-		//console.log("HAHAHA: "+_objArr[i].country +);
+		console.log("HAHAHA: "+_objArr[i].country +);
 		if (_objArr[i].country &&  getX(_objArr[i].city, _objArr[i].country) != null)
 		{
 			var x1 = Math.floor( getX(_objArr[i].city, _objArr[i].country) / multiplier1)*multiplier1 - Math.floor(imgObject[_ind].width/2);
 			var y1 = Math.floor( getY(_objArr[i].city,_objArr[i].country ) / multiplier1)*multiplier1 - Math.floor(imgObject[_ind].height/2);
-			//console.log("HIHIHI " + x1);
+			console.log("HIHIHI " + x1);
 			_objArr[i].x = x1;
 			_objArr[i].y = y1;
 			
