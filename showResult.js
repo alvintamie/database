@@ -6,7 +6,7 @@ var multiply = new Array(4,2,1);
 
 
 
-function clusterObj(_objArr, _zoom)
+function clusterObj(_objArr, _zoom, _ind)
 {
 	var _c_obj = new Array();
 	var coordList = new Array();
@@ -20,8 +20,8 @@ function clusterObj(_objArr, _zoom)
 	}
 	
 	multiplier1 *= 20;
-	var x1 = Math.floor( getX(_objArr[i].city, _objArr[i].country) / multiplier1)*multiplier1 - Math.floor(imgObject[_ind].width/2);
-			var y1 = Math.floor( getY(_objArr[i].city,_objArr[i].country ) / multiplier1)*multiplier1 - Math.floor(imgObject[_ind].height/2);
+	var x1 = Math.floor( getX(authObject.city, authObject.country) / multiplier1)*multiplier1 - Math.floor(imgObject[_ind].width/2);
+	var y1 = Math.floor( getY(authObject.city,authObject.country ) / multiplier1)*multiplier1 - Math.floor(imgObject[_ind].height/2);
 	authorObject.x = xAuth;
 	authorObject.y = yAuth;
 	stemp = xAuth + ":"+yAuth;
@@ -67,11 +67,11 @@ function showResult(_ind, _objArr)
 	canvasObjectText = [];
 	//console.log("HIHIHIHIHIHI");
 	
-	//var arr = clusterObj(obj);
+	var arr = clusterObj(obj);
 	for (i=0;i<=2;++i)
 	{
-		c_obj.push(clusterObj(_objArr,i)[0]);
-		showCoord.push(clusterObj(_objArr,i)[1]);
+		c_obj.push(clusterObj(_objArr,i,_ind)[0]);
+		showCoord.push(clusterObj(_objArr,i,_ind)[1]);
 	}
 	
 	for (i=1;i<showCoord[zoom].length;++i)
