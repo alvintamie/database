@@ -11,6 +11,7 @@ function geoCmp(_objA, _objB)
 		return _objA.city.localeCompare(_objB.city);
 	else	if(_objA.country && _objB.country)
 		return _objA.country.localeCompare(_objB.country);
+	else return 1;
 }
 
 function clusterObj(_objArr, _zoom, _ind)
