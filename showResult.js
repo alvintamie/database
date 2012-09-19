@@ -3,6 +3,7 @@ var authorIndex = 0;
 var c_obj = new Array();
 var showCoord = new Array();
 var multiply = new Array(4,2,1);
+var modeInMap = 0;
 
 function geoCmp(_objA, _objB)
 {
@@ -82,6 +83,7 @@ function showResult(_ind, _objArr)
 	c_obj = [];
 	showCoord = [];
 	canvasObjectAuthorText = "";
+	modeInMap = _ind;
 	//console.log("HIHIHIHIHIHI");
 	
 	//var arr = clusterObj(obj);
@@ -125,7 +127,7 @@ function refreshShow()
 	
 
 	}
-	if (_ind != searchIndex)
+	if (modeInMap != searchIndex)
 	{
 		addCanvasObjectAuthor(showCoord[zoom][0][0]/4,showCoord[zoom][0][1]/4, authorIndex);
 		canvasObjectAuthorText = (c_obj[zoom][showCoord[zoom][0][0]+":"+showCoord[zoom][0][1]].length);	
