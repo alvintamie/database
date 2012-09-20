@@ -181,3 +181,45 @@ function listenAllClick(_clickX, _clickY, _ind)
 	}	
 }
 
+function clearHighlight()
+{
+	if (highlightObj.status > 0) canvasObject.pop();
+	highlightObj.status == 0;
+}
+
+function highlight(_obj)
+{
+	clearHighlight();
+
+	if (_obj.x && _obj.y)
+	{
+		highlightObj.x = _obj.x;
+		highlightObj.y = _obj.y;
+	}
+	else 
+	{
+	highlightObj.x = getX(_obj.city, _obj.country);
+	highlightObj.y = getY(_obj.city, _obj.country);
+	}
+	goTo(highlightObj.x, highlightObj.y, canvas.width/2, canvas.height/2);
+	addCanvasObject(highlightObj.x/4 - imgObject[highlightObj.index].width/8, highlightObj.y/4 - imgObject[highlightObj.index].height/8, highlightObj.index);
+	highlightObj.status = 1;
+}
+
+function oscillate(a)
+{
+	return Math.sin(a);
+}
+
+function renderHighlight(_time)
+{	
+	//addCanvasObject(highlightObj.x/4 - imgObject[highlightObj.index].width/8, highlightObj.y/4 - imgObject[highlightObj.index].height/8 - 10*(Math.sin(new Date())), highlightObj.index);
+	var objTemp = new Object();
+	//var dY = new Date();
+	objTemp.x = highlightObj.x/4 - imgObject[highlightObj.index].width/8;
+	objTemp.y =  highlightObj.y/4 - imgObject[highlightObj.index].height/8 - 10*(oscillate((_time/100)));
+	objTemp.img = highlightObj.index;
+	canvasObject[canvasObject.length - 1] = objTemp;
+}
+
+
