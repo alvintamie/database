@@ -4,6 +4,11 @@ var c_obj = new Array();
 var showCoord = new Array();
 var multiply = new Array(4,2,1);
 var modeInMap = 0;
+var highlightObj = new Object();
+highlightObj.index = 2;
+highlightObj.status = 0;
+highlightObj.x = 0;
+highlightObj.y = 0;
 
 function geoCmp(_objA, _objB)
 {
