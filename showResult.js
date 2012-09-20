@@ -204,16 +204,16 @@ function highlight(_obj)
 
 	if (_obj&& _obj.y && _obj.x)
 	{
-		highlightObj.x = _obj.x;
-		highlightObj.y = _obj.y;
+		highlightObj.x = _obj.x - imgObject[highlightObj.index].width/2;
+		highlightObj.y = _obj.y - imgObject[highlightObj.index].height/2;
 	}
 	else 
 	{
-		highlightObj.x = getX(_obj.city, _obj.country);
-		highlightObj.y = getY(_obj.city, _obj.country);
+		highlightObj.x = getX(_obj.city, _obj.country)- imgObject[highlightObj.index].width/2;
+		highlightObj.y = getY(_obj.city, _obj.country)- imgObject[highlightObj.index].height/2;
 	}
 	goTo(highlightObj.x, highlightObj.y, canvas.width/2, canvas.height/2);
-	addCanvasObjectHighlight(highlightObj.x/4 - imgObject[highlightObj.index].width/8, highlightObj.y/4 - imgObject[highlightObj.index].height/8, highlightObj.index);
+	addCanvasObjectHighlight(highlightObj.x/4, highlightObj.y/4 , highlightObj.index);
 	highlightObj.status = 1;
 }
 
@@ -221,7 +221,7 @@ function refreshHighlight()
 {
 	console.log("hehe: " + highlightObj.status);
 	clearHighlight();
-	addCanvasObjectHighlight(highlightObj.x/4 - imgObject[highlightObj.index].width/8, highlightObj.y/4 - imgObject[highlightObj.index].height/8, highlightObj.index);
+	addCanvasObjectHighlight(highlightObj.x/4 , highlightObj.y/4 , highlightObj.index);
 	highlightObj.status = 1;
 }
 
@@ -235,8 +235,8 @@ function renderHighlight()
 		var currentTime = (new Date())%5000000;
 		var objTemp = new Object();
 		//var dY = new Date();
-		objTemp.x = highlightObj.x/4 - imgObject[highlightObj.index].width/8;
-		objTemp.y =  highlightObj.y/4 - imgObject[highlightObj.index].height - 3*multiply[zoom]*(2+oscillate(currentTime/100));
+		objTemp.x = highlightObj.x/4;
+		objTemp.y =  highlightObj.y/4 - 3*multiply[zoom]*(2+oscillate(currentTime/100));
 		objTemp.img = highlightObj.index;
 		canvasObjectHighlight[canvasObjectHighlight.length - 1] = objTemp;
 
