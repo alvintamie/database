@@ -211,13 +211,13 @@ function oscillate(a)
 	return Math.sin(a);
 }
 
-function renderHighlight(_time)
+function renderHighlight()
 {	
-	//addCanvasObject(highlightObj.x/4 - imgObject[highlightObj.index].width/8, highlightObj.y/4 - imgObject[highlightObj.index].height/8 - 10*(Math.sin(new Date())), highlightObj.index);
+	var currentTime = (new Date())%5000000;
 	var objTemp = new Object();
 	//var dY = new Date();
 	objTemp.x = highlightObj.x/4 - imgObject[highlightObj.index].width/8;
-	objTemp.y =  highlightObj.y/4 - imgObject[highlightObj.index].height/8 - 10*(oscillate((_time/100)));
+	objTemp.y =  highlightObj.y/4 - imgObject[highlightObj.index].height/8 - -5 - 5*(oscillate((currentTime/100)));
 	objTemp.img = highlightObj.index;
 	canvasObject[canvasObject.length - 1] = objTemp;
 }
