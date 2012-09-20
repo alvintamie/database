@@ -194,7 +194,7 @@ function listenAllClick(_clickX, _clickY, _ind)
 
 function clearHighlight()
 {
-	if (highlightObj.status > 0) canvasObject.pop();
+	delete canvasObject[canvasObject.length - 1];
 	highlightObj.status == 0;
 }
 
@@ -234,13 +234,14 @@ function oscillate(a)
 
 function renderHighlight()
 {	
-	var currentTime = (new Date())%5000000;
-	var objTemp = new Object();
-	//var dY = new Date();
-	objTemp.x = highlightObj.x/4 - imgObject[highlightObj.index].width/8;
-	objTemp.y =  highlightObj.y/4 - imgObject[highlightObj.index].height/6 - 5*multiply[zoom]*(1+oscillate(currentTime/100));
-	objTemp.img = highlightObj.index;
-	canvasObject[canvasObject.length - 1] = objTemp;
+		var currentTime = (new Date())%5000000;
+		var objTemp = new Object();
+		//var dY = new Date();
+		objTemp.x = highlightObj.x/4 - imgObject[highlightObj.index].width/8;
+		objTemp.y =  highlightObj.y/4 - imgObject[highlightObj.index].height/6 - 5*multiply[zoom]*(1+oscillate(currentTime/100));
+		objTemp.img = highlightObj.index;
+		canvasObject[canvasObject.length - 1] = objTemp;
+
 }
 
 
