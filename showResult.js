@@ -9,6 +9,7 @@ highlightObj.index = 10;
 highlightObj.status = 0;
 highlightObj.x = 0;
 highlightObj.y = 0;
+highlightObj.obj = null;
 imgObject[10] = new Image();
 imgObject[10].src = 'https://raw.github.com/alvi0010/map/master/image/person.png';
 
@@ -143,6 +144,7 @@ function refreshShow()
 		addCanvasObjectAuthor(showCoord[zoom][0][0]/4,showCoord[zoom][0][1]/4, authorIndex);
 		canvasObjectAuthorText = (c_obj[zoom][showCoord[zoom][0][0]+":"+showCoord[zoom][0][1]].length);	
 	}
+	if (highlightObj.status == 1) highlight(highlightObj);
 
 }
 
@@ -169,7 +171,8 @@ function listenClick(_clickX, _clickY, _ind, _obj, _check)
 	{
 		console.log(_obj);
 		updateRelevantDocument(_obj,1);
-				
+		//SEMENTARA:
+		clearHighlight();			
 	}
 }
 
