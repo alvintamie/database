@@ -145,7 +145,7 @@ function refreshShow()
 		addCanvasObjectAuthor(showCoord[zoom][0][0]/4,showCoord[zoom][0][1]/4, authorIndex);
 		canvasObjectAuthorText = (c_obj[zoom][showCoord[zoom][0][0]+":"+showCoord[zoom][0][1]].length);	
 	}
-	if (highlightObj.status == 1) highlight(highlightObj);
+	if (highlightObj.status == 1) refreshHighlight(highlightObj);
 
 }
 
@@ -215,6 +215,16 @@ function highlight(_obj)
 	goTo(highlightObj.x, highlightObj.y, canvas.width/2, canvas.height/2);
 	addCanvasObject(highlightObj.x/4 - imgObject[highlightObj.index].width/8, highlightObj.y/4 - imgObject[highlightObj.index].height/8, highlightObj.index);
 	highlightObj.status = 1;
+}
+
+function refreshHighlight(_obj)
+{
+	clearHighlight();
+	highlightObj.x = _obj.x;
+	highlightObj.y = _obj.y;
+	addCanvasObject(highlightObj.x/4 - imgObject[highlightObj.index].width/8, highlightObj.y/4 - imgObject[highlightObj.index].height/8, highlightObj.index);
+	highlightObj.status = 1;
+	
 }
 
 function oscillate(a)
