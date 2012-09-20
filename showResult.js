@@ -86,39 +86,39 @@ function clusterObj(_objArr, _zoom, _ind)
 
 function showResult(_ind, _objArr)
 {
-	var i;
-	clearCanvasObject();
-	canvasObjectText = [];
-	c_obj = [];
-	showCoord = [];
-	canvasObjectAuthorText = "";
-	modeInMap = _ind;
-	//console.log("HIHIHIHIHIHI");
-	
-	//var arr = clusterObj(obj);
-	for (i=0;i<=2;++i)
+	if (_ind == modeInMap)
 	{
-		c_obj.push(clusterObj(_objArr,i,_ind)[0]);
-		showCoord.push(clusterObj(_objArr,i,_ind)[1]);
+		var i;
+		clearCanvasObject();
+		canvasObjectText = [];
+		c_obj = [];
+		showCoord = [];
+		canvasObjectAuthorText = "";
+		modeInMap = _ind;
+		//console.log("HIHIHIHIHIHI");
+		
+		//var arr = clusterObj(obj);
+		for (i=0;i<=2;++i)
+		{
+			c_obj.push(clusterObj(_objArr,i,_ind)[0]);
+			showCoord.push(clusterObj(_objArr,i,_ind)[1]);
+		}
+		
+		for (i=1;i<showCoord[zoom].length;++i)
+		{
+			//drawObject(imgObject[ind],coordList[i][0], coordList[i][1]);
+			//drawText(c_obj[coordList[i][0]+":"+coordList[i][1]], coordList[i][0], coordList[i][1]);
+			addCanvasObject(showCoord[zoom][i][0]/4,showCoord[zoom][i][1]/4, _ind);
+			canvasObjectText.push(c_obj[zoom][showCoord[zoom][i][0]+":"+showCoord[zoom][i][1]].length)		
+		}
+		console.log(showCoord[zoom][0]);
+		
+		if (_ind != searchIndex)
+		{
+			addCanvasObjectAuthor(showCoord[zoom][0][0]/4,showCoord[zoom][0][1]/4, authorIndex);
+			canvasObjectAuthorText = (c_obj[zoom][showCoord[zoom][0][0]+":"+showCoord[zoom][0][1]].length);
+		}
 	}
-	
-	for (i=1;i<showCoord[zoom].length;++i)
-	{
-		//drawObject(imgObject[ind],coordList[i][0], coordList[i][1]);
-		//drawText(c_obj[coordList[i][0]+":"+coordList[i][1]], coordList[i][0], coordList[i][1]);
-		addCanvasObject(showCoord[zoom][i][0]/4,showCoord[zoom][i][1]/4, _ind);
-		canvasObjectText.push(c_obj[zoom][showCoord[zoom][i][0]+":"+showCoord[zoom][i][1]].length)		
-	}
-	console.log(showCoord[zoom][0]);
-	
-	if (_ind != searchIndex)
-	{
-		//console.log("HAHAHAHAHA-");
-		addCanvasObjectAuthor(showCoord[zoom][0][0]/4,showCoord[zoom][0][1]/4, authorIndex);
-		canvasObjectAuthorText = (c_obj[zoom][showCoord[zoom][0][0]+":"+showCoord[zoom][0][1]].length);
-	}
-	console.log("UDAH KLUAR IF --");
-//	
 //	addCanvasObjectAuthor(getX(authorObject.city, authorObject.country)/4,getY(_objArr[i].city,_objArr[i].country )/4, authorIndex)
 //	
 }
@@ -129,6 +129,7 @@ function refreshShow()
 	clearCanvasObject();
 	canvasObjectText = [];
 	canvasObjectAuthorText = "";
+	if (showCoord[zoom])
 	for (i=1;i<showCoord[zoom].length;++i)
 	{
 		//drawObject(imgObject[ind],coordList[i][0], coordList[i][1]);
