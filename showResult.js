@@ -5,13 +5,13 @@ var showCoord = new Array();
 var multiply = new Array(4,2,1);
 var modeInMap = 0;
 var highlightObj = new Object();
-highlightObj.index = 10;
+highlightObj.index = 0;
 highlightObj.status = 0;
 highlightObj.x = 0;
 highlightObj.y = 0;
 highlightObj.obj = null;
-imgObject[10] = new Image();
-imgObject[10].src = 'https://raw.github.com/alvi0010/map/master/image/person.png';
+//imgObject[10] = new Image();
+//imgObject[10].src = 'https://raw.github.com/alvi0010/map/master/image/person.png';
 
 function geoCmp(_objA, _objB)
 {
