@@ -201,7 +201,7 @@ function highlight(_obj)
 {
 	clearHighlight();
 
-	if (_obj.x && _obj.y)
+	if (_obj&& _obj.y && _obj.x)
 	{
 		highlightObj.x = _obj.x;
 		highlightObj.y = _obj.y;
