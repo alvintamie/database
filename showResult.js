@@ -194,7 +194,7 @@ function listenAllClick(_clickX, _clickY, _ind)
 
 function clearHighlight()
 {
-	delete canvasObject[canvasObject.length - 1];
+	canvasObject.splice(canvasObject.length-1,1);
 	highlightObj.status == 0;
 }
 
