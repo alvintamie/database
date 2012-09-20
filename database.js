@@ -87,7 +87,7 @@ function addCity(_index,_cityName,_x,_y,_country)
 	if (_country != null) country = _country;
 	else country = getObject("null");
 	city[_index] = new City(_cityName, _x, _y, country);
-	cityIndex[_cityName.toLowerCase() + country.getName()] = _index;
+	cityIndex[_cityName.toLowerCase() + country.getName().toLowerCase()] = _index;
 }
 
 function addCountry(_index, _countryName, _x, _y)
@@ -121,10 +121,11 @@ function getObject(_name)
 //getCoordinate FUNCTION:
 function getX (_city, _country)
 {
-	if (getObject(_country) != null)
+	if (getObject(_country) != null )
 	{
 		if (getObject(_city + _country) != null) return getObject(_city + _country).x;
-		else if (getObject(_country) != null  && getObject(_country).getName() != "null") return getObject(_country).x;
+		else if ( getObject(_country).getName() != "null") return getObject(_country).x;
+		else return null;
 	}
 	else if (getObject(_city+"null") != null) return getObject(_city + _country).x;
 	else 
@@ -139,12 +140,12 @@ function getY (_city, _country)
 	if (getObject(_country) != null)
 	{
 		if (getObject(_city + _country) != null) return getObject(_city + _country).y;
-		else if (getObject(_country) != null && getObject(_country).getName() != "null") return getObject(_country).y;
+		else if ( getObject(_country).getName() != "null") return getObject(_country).y;
 	}
 	else if (getObject(_city+"null") != null) return getObject(_city + _country).y;
 	else 
 	{
-		console.log("No country and city specified");
+	//	console.log("No country and city specified");
 		return null;
 	}
 }
