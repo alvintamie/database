@@ -145,6 +145,7 @@ function refreshShow()
 		addCanvasObjectAuthor(showCoord[zoom][0][0]/4,showCoord[zoom][0][1]/4, authorIndex);
 		canvasObjectAuthorText = (c_obj[zoom][showCoord[zoom][0][0]+":"+showCoord[zoom][0][1]].length);	
 	}
+	console.log(highlightObj.status);
 	if (highlightObj.status == 1) refreshHighlight(highlightObj);
 
 }
@@ -243,7 +244,7 @@ function renderHighlight()
 		objTemp.x = highlightObj.x/4 - imgObject[highlightObj.index].width/8;
 		objTemp.y =  highlightObj.y/4 - imgObject[highlightObj.index].height/6 - 5*multiply[zoom]*(1+oscillate(currentTime/100));
 		objTemp.img = highlightObj.index;
-		canvasObjectHighlight[canvasObject.length - 1] = objTemp;
+		canvasObjectHighlight[canvasObjectHighlight.length - 1] = objTemp;
 
 }
 
