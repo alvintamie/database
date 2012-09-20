@@ -194,8 +194,8 @@ function listenAllClick(_clickX, _clickY, _ind)
 
 function clearHighlight()
 {
-	canvasObject.splice(canvasObject.length-1,1);
-	highlightObj.status == 0;
+	clearCanvasObjectHighlight();
+	highlightObj.status = 0;
 }
 
 function highlight(_obj)
@@ -209,22 +209,25 @@ function highlight(_obj)
 	}
 	else 
 	{
-	highlightObj.x = getX(_obj.city, _obj.country);
-	highlightObj.y = getY(_obj.city, _obj.country);
+		highlightObj.x = getX(_obj.city, _obj.country);
+		highlightObj.y = getY(_obj.city, _obj.country);
 	}
 	goTo(highlightObj.x, highlightObj.y, canvas.width/2, canvas.height/2);
-	addCanvasObject(highlightObj.x/4 - imgObject[highlightObj.index].width/8, highlightObj.y/4 - imgObject[highlightObj.index].height/8, highlightObj.index);
+	addCanvasObjectHighlight(highlightObj.x/4 - imgObject[highlightObj.index].width/8, highlightObj.y/4 - imgObject[highlightObj.index].height/8, highlightObj.index);
 	highlightObj.status = 1;
 }
 
 function refreshHighlight(_obj)
 {
-	clearHighlight();
-	highlightObj.x = _obj.x;
-	highlightObj.y = _obj.y;
-	addCanvasObject(highlightObj.x/4 - imgObject[highlightObj.index].width/8, highlightObj.y/4 - imgObject[highlightObj.index].height/8, highlightObj.index);
-	highlightObj.status = 1;
-	
+	if (highlight.status == 1)
+	{
+		clearHighlight();
+		highlightObj.x = _obj.x;
+		highlightObj.y = _obj.y;
+		addCanvasObjectHighlight(highlightObj.x/4 - imgObject[highlightObj.index].width/8, highlightObj.y/4 - imgObject[highlightObj.index].height/8, highlightObj.index);
+		highlightObj.status = 1;
+	}
+
 }
 
 function oscillate(a)
@@ -240,7 +243,7 @@ function renderHighlight()
 		objTemp.x = highlightObj.x/4 - imgObject[highlightObj.index].width/8;
 		objTemp.y =  highlightObj.y/4 - imgObject[highlightObj.index].height/6 - 5*multiply[zoom]*(1+oscillate(currentTime/100));
 		objTemp.img = highlightObj.index;
-		canvasObject[canvasObject.length - 1] = objTemp;
+		canvasObjectHighlight[canvasObject.length - 1] = objTemp;
 
 }
 
