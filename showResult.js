@@ -1,5 +1,6 @@
 var searchIndex = 1;
 var authorIndex = 0;
+var viewAllIndex = 0;
 var c_obj = new Array();
 var showCoord = new Array();
 var multiply = new Array(4,2,1);
@@ -53,6 +54,11 @@ function clusterObj(_objArr, _zoom, _ind)
 		//console.log("HAHAHA: "+_objArr[i].country );
 		if (_objArr[i].country &&  getX(_objArr[i].city, _objArr[i].country) != null)
 		{
+			//CHECK EXISTANCE OF CITY
+			if (_objArr[i].city == 'undefined') _objArr[i].city = "noCity";
+			//CHECK EXISTANCE OF HITCOUNT
+			if (_objArr[i].hitCount == 'undefined') _objArr[i].city = 1;
+			
 			var x1 = Math.floor( getX(_objArr[i].city, _objArr[i].country) / multiplier1)*multiplier1 - Math.floor(imgObject[_ind].width/2);
 			var y1 = Math.floor( getY(_objArr[i].city,_objArr[i].country ) / multiplier1)*multiplier1 - Math.floor(imgObject[_ind].height/2);
 			//console.log("HIHIHI " + x1);
@@ -64,6 +70,7 @@ function clusterObj(_objArr, _zoom, _ind)
 			{
 				_c_obj[stemp].push(_objArr[i]);
 				_c_obj[stemp][_c_obj[stemp].length-1].index = i;
+				_c_obj[stemp].hitCount += _objArr[i].hitCount;
 			}
 			else 
 			{
@@ -71,6 +78,7 @@ function clusterObj(_objArr, _zoom, _ind)
 				_c_obj[stemp].x = x1;
 				_c_obj[stemp].y = y1;
 				_c_obj[stemp][0].index = i;
+				_c_obj[stemp].hitCount = _objArr[i].hitCount;
 				coordList.push(new Array(x1,y1));
 			}
 							
@@ -94,7 +102,6 @@ function showResult(_ind, _objArr)
 		c_obj = [];
 		showCoord = [];
 		canvasObjectAuthorText = "";
-		modeInMap = _ind;
 		//console.log("HIHIHIHIHIHI");
 		
 		//var arr = clusterObj(obj);
@@ -109,14 +116,14 @@ function showResult(_ind, _objArr)
 			//drawObject(imgObject[ind],coordList[i][0], coordList[i][1]);
 			//drawText(c_obj[coordList[i][0]+":"+coordList[i][1]], coordList[i][0], coordList[i][1]);
 			addCanvasObject(showCoord[zoom][i][0]/4,showCoord[zoom][i][1]/4, _ind);
-			canvasObjectText.push(c_obj[zoom][showCoord[zoom][i][0]+":"+showCoord[zoom][i][1]].length)		
+			canvasObjectText.push(c_obj[zoom][showCoord[zoom][i][0]+":"+showCoord[zoom][i][1]].hitCount)		
 		}
 		console.log(showCoord[zoom][0]);
 		
 		if (_ind != searchIndex)
 		{
 			addCanvasObjectAuthor(showCoord[zoom][0][0]/4,showCoord[zoom][0][1]/4, authorIndex);
-			canvasObjectAuthorText = (c_obj[zoom][showCoord[zoom][0][0]+":"+showCoord[zoom][0][1]].length);
+			canvasObjectAuthorText = (c_obj[zoom][showCoord[zoom][0][0]+":"+showCoord[zoom][0][1]].hitCount);
 		}
 	}
 //	addCanvasObjectAuthor(getX(authorObject.city, authorObject.country)/4,getY(_objArr[i].city,_objArr[i].country )/4, authorIndex)
@@ -135,7 +142,7 @@ function refreshShow()
 		//drawObject(imgObject[ind],coordList[i][0], coordList[i][1]);
 		//drawText(c_obj[coordList[i][0]+":"+coordList[i][1]], coordList[i][0], coordList[i][1]);
 		addCanvasObject(showCoord[zoom][i][0]/4,showCoord[zoom][i][1]/4, 0);
-		canvasObjectText.push(c_obj[zoom][showCoord[zoom][i][0]+":"+showCoord[zoom][i][1]].length);
+		canvasObjectText.push(c_obj[zoom][showCoord[zoom][i][0]+":"+showCoord[zoom][i][1]].hitCount);
 	//	if (ind == searchIndex) addCanvasObjectAuthor(getX(authorObject.city,authorObject.country)/4,getY(authorObject.city,authorObject.country)/4,authorIndex);
 	
 
@@ -143,7 +150,7 @@ function refreshShow()
 	if (modeInMap != searchIndex)
 	{
 		addCanvasObjectAuthor(showCoord[zoom][0][0]/4,showCoord[zoom][0][1]/4, authorIndex);
-		canvasObjectAuthorText = (c_obj[zoom][showCoord[zoom][0][0]+":"+showCoord[zoom][0][1]].length);	
+		canvasObjectAuthorText = (c_obj[zoom][showCoord[zoom][0][0]+":"+showCoord[zoom][0][1]].hitCount);	
 	}
 	if (highlightObj.status == 1) refreshHighlight();
 
@@ -173,7 +180,8 @@ function listenClick(_clickX, _clickY, _ind, _obj, _check)
 		console.log(_obj);
 		updateRelevantDocument(_obj,1);
 		//SEMENTARA:
-		clearHighlight();			
+		clearHighlight();
+		if (modeInMap == viewAllIndex) 1;
 	}
 }
 
@@ -236,7 +244,7 @@ function renderHighlight()
 		var objTemp = new Object();
 		//var dY = new Date();
 		objTemp.x = highlightObj.x/4;
-		objTemp.y =  highlightObj.y/4 - imgObject[highlightObj.index].width - 2*multiply[zoom]*(2+oscillate(currentTime/200));
+		objTemp.y =  highlightObj.y/4 - imgObject[highlightObj.index].width - 3*multiply[zoom]*(2+oscillate(currentTime/200));
 		objTemp.img = highlightObj.index;
 		canvasObjectHighlight[canvasObjectHighlight.length - 1] = objTemp;
 
