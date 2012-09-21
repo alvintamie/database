@@ -236,7 +236,7 @@ function renderHighlight()
 		var objTemp = new Object();
 		//var dY = new Date();
 		objTemp.x = highlightObj.x/4;
-		objTemp.y =  highlightObj.y/4 - imgObject[highlightObj.index].width - 3*multiply[zoom]*(2+oscillate(currentTime/200));
+		objTemp.y =  highlightObj.y/4 - imgObject[highlightObj.index].width - 2*multiply[zoom]*(2+oscillate(currentTime/200));
 		objTemp.img = highlightObj.index;
 		canvasObjectHighlight[canvasObjectHighlight.length - 1] = objTemp;
 
