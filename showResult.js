@@ -320,8 +320,9 @@ function listenMouseOver(_mouseX, _mouseY, _ind, _obj, _check)
 	}
 	else
 	{
-		return 0;
 		canvasObject[_obj.index].img = 0;
+		return 0;
+
 	}
 }
 
