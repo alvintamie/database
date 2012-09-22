@@ -1,6 +1,7 @@
 var searchIndex = 1;
 var authorIndex = 0;
 var viewAllIndex = 0;
+var changeIndex = 1;
 var c_obj = new Array();
 var showCoord = new Array();
 var multiply = new Array(4,2,1);
@@ -291,10 +292,12 @@ function showCityCountryInfo(_obj)
 	var stemp;
 	var i;
 	var countObj = new Array();
-	var diffX = (_obj.x/multiply[zoom] + imageCoords[0] + canvas.offsetLeft)%img[zoom].width + 70;
-	var diffY = (_obj.y/multiply[zoom] + imageCoords[1] + canvas.offsetTop)%img[zoom].height - 100;
+	var diffX = (_obj.x/multiply[zoom] + imageCoords[0] + canvas.offsetLeft)%img[zoom].width;
+	var diffY = (_obj.y/multiply[zoom] + imageCoords[1] + canvas.offsetTop)%img[zoom].height;
 	
 	if (diffX < 0) diffX += img[zoom].width;
+	diffX += 70;
+	diffY -= 100;
 	if (diffX - canvas.offsetLeft > canvas.width/2) diffX -= 290;
 	if (diffY - canvas.offsetTop < canvas.height /3) diffY += 150;
 	
@@ -316,13 +319,15 @@ function listenMouseOver(_mouseX, _mouseY, _ind, _obj, _check)
 	if (_check(_mouseX, _mouseY, _ind, _obj))
 	{
 		showCityCountryInfo(_obj);
-		canvasObject[_obj.index].img = 1;
+		canvasObjectChange.x = _obj.x;
+		canvasObjectChange.y = _obj.y;
+		canvasObjectChange.img = changeIndex;
 		return 1;
 	}
 	else
 	{
 		console.log(_obj.index);
-		canvasObject[_obj.index].img = 0;
+		canvasObjectChange = new Object();
 		return 0;
 
 	}
