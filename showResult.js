@@ -257,17 +257,23 @@ function showCityCountryInfo(_obj)
 	console.log(canvas.offsetLeft + " " + canvas.offsetTop );
 	var stemp;
 	var i;
+	var countObj = new Array();
 	var diffX = (_obj.x/multiply[zoom] + imageCoords[0] + canvas.offsetLeft)%img[zoom].width;
 	var diffY = (_obj.y/multiply[zoom] + imageCoords[1] + canvas.offsetTop)%img[zoom].height  -100;
 	
+	if (diffX < 0) diffX += img[zoom].width;
 	if (diffX - canvas.offsetLeft > canvas.width/2) diffX -= 200;
 	
 	showInfoObj.innerHTML = "    ";
 	showInfoObj.style.top =  diffY + "px";
 	showInfoObj.style.left = diffX + "px";
 	showInfoObj.style.display = "block";
+	for (i=_obj.length-1; i>=0;--i )
+	if (i==_obj.length-1 || (i<_obj.length-1 && _obj[i].country != _obj[i+1].country)) countObj[i]=1;
+	else countObj[i] += 1;
+	
 	for (i=0;i<_obj.length;++i)
-	if (i==0 || (i>0 && _obj[i].country != _obj[i-1].country))showInfoObj.innerHTML +=  _obj[i].country + "<br>"; 
+	if (i==0 || (i>0 && _obj[i].country != _obj[i-1].country))showInfoObj.innerHTML +=  _obj[i].country +"(" + countObj[i] + ")" + "<br>"; 
 }
 
 function listenMouseOver(_mouseX, _mouseY, _ind, _obj, _check)
