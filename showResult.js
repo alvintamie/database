@@ -42,7 +42,7 @@ function clusterObj(_objArr, _zoom, _ind)
 		multiplier1 *= 2;
 	}
 	
-	multiplier1 *= 20;
+	multiplier1 *= 40;
 	
 	if (typeof(authorObject.city) == 'undefined' ) authorObject.city = "noCity";
 	if (typeof(authorObject.hitCount) == 'undefined') authorObject.hitCount = 1;
