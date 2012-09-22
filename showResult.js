@@ -77,6 +77,8 @@ function clusterObj(_objArr, _zoom, _ind)
 			//CHECK EXISTANCE OF COUNTRY (REPLACED WITH NAME IF NOT EXIST)
 			if (typeof(_objArr[i].country) == 'undefined') _objArr[i].country = _objArr[i].name;
 			
+			console.log(_objArr[i].country);
+			
 			var x1 = Math.floor( getX(_objArr[i].city, _objArr[i].country) / multiplier1)*multiplier1 - Math.floor(imgObject[_ind].width/2);
 			var y1 = Math.floor( getY(_objArr[i].city,_objArr[i].country ) / multiplier1)*multiplier1 - Math.floor(imgObject[_ind].height/2);
 		
@@ -109,7 +111,7 @@ function clusterObj(_objArr, _zoom, _ind)
 	{
 		_c_obj[key].sort(geoCmp);
 	}
-	console.log(_objArr);
+	
 	return new Array(_c_obj,coordList);
 }
 
