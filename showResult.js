@@ -62,7 +62,7 @@ function clusterObj(_objArr, _zoom, _ind)
 	_c_obj[stemp].hitCount = authorObject.hitCount;
 	coordList.push(new Array(xAuth, yAuth));
 	
-	console.log(_objArr);
+	
 	
 		
 	for (i=0; i<_objArr.length;++i)
@@ -109,6 +109,7 @@ function clusterObj(_objArr, _zoom, _ind)
 	{
 		_c_obj[key].sort(geoCmp);
 	}
+	console.log(_objArr);
 	return new Array(_c_obj,coordList);
 }
 
