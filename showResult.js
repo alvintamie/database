@@ -11,6 +11,7 @@ highlightObj.status = 0;
 highlightObj.x = 0;
 highlightObj.y = 0;
 highlightObj.obj = null;
+var showInfoObj;
 //imgObject[10] = new Image();
 //imgObject[10].src = 'https://raw.github.com/alvi0010/map/master/image/person.png';
 
@@ -251,7 +252,10 @@ function renderHighlight()
 
 function showCityCountryInfo(_obj)
 {
-	console.log(_obj)
+//	console.log(_obj)
+	showInfoObj.style.top = _obj.y - 50 + "px";
+	showInfoObj.style.left = _obj.x - 300 + "px";
+	showInfoObj.style.display = "block";
 }
 
 function listenMouseOver(_mouseX, _mouseY, _ind, _obj, _check)
