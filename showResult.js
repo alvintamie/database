@@ -112,7 +112,7 @@ function showResult(_ind, _objArr)
 		c_obj = [];
 		showCoord = [];
 		canvasObjectAuthorText = "";
-		//console.log("HIHIHIHIHIHI");
+		console.log(_objArr);
 		
 		//var arr = clusterObj(obj);
 		for (i=0;i<=2;++i)
