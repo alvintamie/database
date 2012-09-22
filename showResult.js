@@ -262,7 +262,7 @@ function listenMouseOver(_mouseX, _mouseY, _ind, _obj, _check)
 	}
 }
 
-function listenAllMouseOver(_mouseX, mouseY, _ind)
+function listenAllMouseOver(_mouseX, _mouseY, _ind)
 {
 		for (key in c_obj[zoom])
 	{
