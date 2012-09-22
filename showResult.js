@@ -252,9 +252,10 @@ function renderHighlight()
 
 function showCityCountryInfo(_obj)
 {
-	console.log(_obj);
+	console.log(_obj.x + " " + _obj.y) ;
 	var stemp;
 	var i;
+	
 	showInfoObj.innerHTML = "";
 	showInfoObj.style.top = _obj.y - 50 + "px";
 	showInfoObj.style.left = _obj.x - 300 + "px";
