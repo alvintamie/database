@@ -118,7 +118,7 @@ function showResult(_ind, _objArr)
 			addCanvasObject(showCoord[zoom][i][0]/4,showCoord[zoom][i][1]/4, _ind);
 			canvasObjectText.push(c_obj[zoom][showCoord[zoom][i][0]+":"+showCoord[zoom][i][1]].hitCount)		
 		}
-		console.log(showCoord[zoom][0]);
+		//console.log(showCoord[zoom][0]);
 		
 		if (_ind != searchIndex)
 		{
@@ -226,7 +226,7 @@ function highlight(_obj)
 
 function refreshHighlight()
 {
-	console.log("hehe: " + highlightObj.status);
+	//console.log("hehe: " + highlightObj.status);
 	clearHighlight();
 	addCanvasObjectHighlight(highlightObj.x/4 , highlightObj.y/4 , highlightObj.index);
 	highlightObj.status = 1;
