@@ -131,11 +131,11 @@ function getX (_city, _country)
 {
 	if (getObject(_country) != null )
 	{
-		if (getObject(_city + _country) != null) return getObject(_city + _country).x;
+		if (getObject(_city +":"+ _country) != null) return getObject(_city + _country).x;
 		else if ( getObject(_country).getName() != "null") return getObject(_country).x;
 		else return null;
 	}
-	else if (getObject(_city+"null") != null) return getObject(_city + _country).x;
+	else if (getObject(_city+":"+"null") != null) return getObject(_city + _country).x;
 	else 
 	{
 		//console.log("No country and city specified");
@@ -147,7 +147,7 @@ function getY (_city, _country)
 {
 	if (getObject(_country) != null)
 	{
-		if (getObject(_city + _country) != null) return getObject(_city + _country).y;
+		if (getObject(_city +":"+ _country) != null) return getObject(_city + _country).y;
 		else if ( getObject(_country).getName() != "null") return getObject(_country).y;
 	}
 	else if (getObject(_city+"null") != null) return getObject(_city + _country).y;
