@@ -256,17 +256,17 @@ function showCityCountryInfo(_obj)
 
 function listenMouseOver(_mouseX, _mouseY, _ind, _obj, _check)
 {
-		if (_check(_clickX, _clickY, _ind, _obj))
+		if (_check(_mouseX, _mouseY, _ind, _obj))
 	{
 		showCityCountryInfo(_obj);
 	}
 }
 
-function listenAllMouseOver()
+function listenAllMouseOver(_mouseX, mouseY, _ind)
 {
 		for (key in c_obj[zoom])
 	{
-		listenMouseOver(_clickX, _clickY, _ind, c_obj[zoom][key], checkSquare)
+		listenMouseOver(_mouseX, _mouseY, _ind, c_obj[zoom][key], checkSquare)
 	}
 }
 
