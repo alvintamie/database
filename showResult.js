@@ -137,7 +137,7 @@ function showResult(_ind, _objArr)
 			c_obj.push(clusterObj(_objArr,i,_ind)[0]);
 			showCoord.push(clusterObj(_objArr,i,_ind)[1]);
 		}
-		console.log(c_obj);
+		
 		
 		for (i=1;i<showCoord[zoom].length;++i)
 		{
@@ -155,6 +155,7 @@ function showResult(_ind, _objArr)
 			c_obj[zoom][showCoord[zoom][0][0]+":"+showCoord[zoom][0][1]].index = showCoord[zoom].length-1;
 			canvasObjectAuthorText = (c_obj[zoom][showCoord[zoom][0][0]+":"+showCoord[zoom][0][1]].hitCount);
 		}
+		console.log(c_obj);
 	}
 //	addCanvasObjectAuthor(getX(authorObject.city, authorObject.country)/4,getY(_objArr[i].city,_objArr[i].country )/4, authorIndex)
 //	
