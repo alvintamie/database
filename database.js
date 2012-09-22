@@ -5,6 +5,8 @@ university = new Array();
 var countryIndex = {};
 var cityIndex = {};
 var universityIndex = {};
+var xErrorAdj = 7;
+var yErrorAdj = 7;
 ////////////////////////////////////////////////////////////////////////
 
 //DATABASE STRUCTURE:
@@ -94,13 +96,13 @@ function addCity(_index,_cityName,_x,_y,_country)
 		
 	}
 	else countryLoc = country[countryIndex[_country.toLowerCase()]];
-	city[_index] = new City(_cityName, _x, _y, countryLoc);
+	city[_index] = new City(_cityName, _x + xErrorAdj, _y + yErrorAdj, countryLoc);
 	cityIndex[_cityName.toLowerCase() +":"+ countryLoc.getName().toLowerCase()] = _index;
 }
 
 function addCountry(_index, _countryName, _x, _y)
 {
-	country[_index] = new Country(_countryName, _x, _y);
+	country[_index] = new Country(_countryName, _x + xErrorAdj, _y+yErrorAdj);
 	countryIndex[_countryName.toLowerCase()] = _index;
 }
 //Make a dummy country with index 400:
