@@ -55,9 +55,9 @@ function clusterObj(_objArr, _zoom, _ind)
 		if (_objArr[i].country &&  getX(_objArr[i].city, _objArr[i].country) != null)
 		{
 			//CHECK EXISTANCE OF CITY
-			if (_objArr[i].city == 'undefined') _objArr[i].city = "noCity";
+			if (typeof(_objArr[i].city) == 'undefined') _objArr[i].city = "noCity";
 			//CHECK EXISTANCE OF HITCOUNT
-			if (_objArr[i].hitCount == 'undefined') _objArr[i].city = 1;
+			if (typeof(_objArr[i].hitCount) == 'undefined') _objArr[i].hitCount = 1;
 			
 			var x1 = Math.floor( getX(_objArr[i].city, _objArr[i].country) / multiplier1)*multiplier1 - Math.floor(imgObject[_ind].width/2);
 			var y1 = Math.floor( getY(_objArr[i].city,_objArr[i].country ) / multiplier1)*multiplier1 - Math.floor(imgObject[_ind].height/2);
