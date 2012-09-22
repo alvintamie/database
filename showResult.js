@@ -269,9 +269,10 @@ function showCityCountryInfo(_obj)
 	showInfoObj.style.left = diffX + "px";
 	showInfoObj.style.display = "block";
 	for (i=_obj.length-1; i>=0;--i )
-	if (i==_obj.length-1 || (i<_obj.length-1 && _obj[i].country != _obj[i+1].country)) countObj[i]=1;
-	else countObj[i] += 1;
-	
+	{
+		if (i==_obj.length-1 || (i<_obj.length-1 && _obj[i].country != _obj[i+1].country)) countObj[i]=1;
+		else countObj[i] = countObj[i+1] + 1;
+	}
 	for (i=0;i<_obj.length;++i)
 	if (i==0 || (i>0 && _obj[i].country != _obj[i-1].country))showInfoObj.innerHTML +=  _obj[i].country +"(" + countObj[i] + ")" + "<br>"; 
 }
