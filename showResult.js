@@ -35,6 +35,7 @@ function clusterObj(_objArr, _zoom, _ind)
 	var stemp;
 	var multiplier1 = 1;
 	var i;
+	var tcountry;
 	
 	for (i=2; i>_zoom;i--)
 	{
@@ -45,9 +46,14 @@ function clusterObj(_objArr, _zoom, _ind)
 	
 	if (typeof(authorObject.city) == 'undefined' ) authorObject.city = "noCity";
 	if (typeof(authorObject.hitCount) == 'undefined') authorObject.hitCount = 1;
+	if (typeof(authorObject.country == 'undefined')) tcountry = authorObject.name;
+	else tcountry = authorObject.country;
+	//var xAuth = Math.floor( getX(authorObject.city, authorObject.country) / multiplier1)*multiplier1 - Math.floor(imgObject[_ind].width/2);
+	//var yAuth = Math.floor( getY(authorObject.city,authorObject.country ) / multiplier1)*multiplier1 - Math.floor(imgObject[_ind].height/2);
 	
-	var xAuth = Math.floor( getX(authorObject.city, authorObject.country) / multiplier1)*multiplier1 - Math.floor(imgObject[_ind].width/2);
-	var yAuth = Math.floor( getY(authorObject.city,authorObject.country ) / multiplier1)*multiplier1 - Math.floor(imgObject[_ind].height/2);
+	var xAuth = Math.floor( getX(authorObject.city,tcountry) / multiplier1)*multiplier1 - Math.floor(imgObject[_ind].width/2);
+	var yAuth = Math.floor( getY(authorObject.city,tcountry ) / multiplier1)*multiplier1 - Math.floor(imgObject[_ind].height/2);
+	
 	authorObject.x = xAuth;
 	authorObject.y = yAuth;
 	stemp = xAuth + ":"+yAuth;
@@ -68,9 +74,15 @@ function clusterObj(_objArr, _zoom, _ind)
 			if (typeof(_objArr[i].city) == 'undefined') _objArr[i].city = "noCity";
 			//CHECK EXISTANCE OF HITCOUNT
 			if (typeof(_objArr[i].hitCount) == 'undefined') _objArr[i].hitCount = 1;
+			//CHECK EXISTANCE OF COUNTRY (REPLACED WITH NAME IF NOT EXIST)
+			if (typeof(_objArr[i].country == 'undefined') tcountry = _objArr[i].name;
+			else tcountry = _objArr[i].country;
 			
-			var x1 = Math.floor( getX(_objArr[i].city, _objArr[i].country) / multiplier1)*multiplier1 - Math.floor(imgObject[_ind].width/2);
-			var y1 = Math.floor( getY(_objArr[i].city,_objArr[i].country ) / multiplier1)*multiplier1 - Math.floor(imgObject[_ind].height/2);
+		//	var x1 = Math.floor( getX(_objArr[i].city, _objArr[i].country) / multiplier1)*multiplier1 - Math.floor(imgObject[_ind].width/2);
+		//	var y1 = Math.floor( getY(_objArr[i].city,_objArr[i].country ) / multiplier1)*multiplier1 - Math.floor(imgObject[_ind].height/2);
+		
+			var x1 = Math.floor( getX(_objArr[i].city,tcountry) / multiplier1)*multiplier1 - Math.floor(imgObject[_ind].width/2);
+			var y1 = Math.floor( getY(_objArr[i].city,tcountry ) / multiplier1)*multiplier1 - Math.floor(imgObject[_ind].height/2);
 			//console.log("HIHIHI " + x1);
 			_objArr[i].x = x1;
 			_objArr[i].y = y1;
