@@ -62,6 +62,7 @@ function clusterObj(_objArr, _zoom, _ind)
 	_c_obj[stemp].hitCount = authorObject.hitCount;
 	coordList.push(new Array(xAuth, yAuth));
 	
+	console.log(_objArr);
 	
 		
 	for (i=0; i<_objArr.length;++i)
@@ -122,7 +123,7 @@ function showResult(_ind, _objArr)
 		c_obj = [];
 		showCoord = [];
 		canvasObjectAuthorText = "";
-		console.log(_objArr);
+	//	console.log(_objArr);
 		
 		//var arr = clusterObj(obj);
 		for (i=0;i<=2;++i)
