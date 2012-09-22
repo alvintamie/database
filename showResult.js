@@ -93,7 +93,7 @@ function clusterObj(_objArr, _zoom, _ind)
 			if (_c_obj[stemp] )
 			{
 				_c_obj[stemp].push(_objArr[i]);
-				_c_obj[stemp][_c_obj[stemp].length-1].index = i;
+			//	_c_obj[stemp][_c_obj[stemp].length-1].index = i;
 				_c_obj[stemp].hitCount += parseInt(_objArr[i].hitCount);
 			}
 			else 
@@ -101,7 +101,7 @@ function clusterObj(_objArr, _zoom, _ind)
 				_c_obj[stemp] = new Array(_objArr[i]);
 				_c_obj[stemp].x = x1;
 				_c_obj[stemp].y = y1;
-				_c_obj[stemp][0].index = i;
+			//	_c_obj[stemp][0].index = i;
 				_c_obj[stemp].hitCount = parseInt(_objArr[i].hitCount);
 				coordList.push(new Array(x1,y1));
 			}
@@ -144,6 +144,7 @@ function showResult(_ind, _objArr)
 			//drawObject(imgObject[ind],coordList[i][0], coordList[i][1]);
 			//drawText(c_obj[coordList[i][0]+":"+coordList[i][1]], coordList[i][0], coordList[i][1]);
 			addCanvasObject(showCoord[zoom][i][0]/4,showCoord[zoom][i][1]/4, _ind);
+			c_obj[zoom][showCoord[zoom][i][0]+":"+showCoord[zoom][i][1]].index = i-1;
 			canvasObjectText.push(c_obj[zoom][showCoord[zoom][i][0]+":"+showCoord[zoom][i][1]].hitCount)		
 		}
 		//console.log(showCoord[zoom][0]);
@@ -151,6 +152,7 @@ function showResult(_ind, _objArr)
 		if (_ind != searchIndex || tempo)
 		{
 			addCanvasObjectAuthor(showCoord[zoom][0][0]/4,showCoord[zoom][0][1]/4, authorIndex);
+			c_obj[zoom][showCoord[zoom][0][0]+":"+showCoord[zoom][0][1]].index = showCoord[zoom].length-1;
 			canvasObjectAuthorText = (c_obj[zoom][showCoord[zoom][0][0]+":"+showCoord[zoom][0][1]].hitCount);
 		}
 	}
@@ -170,6 +172,7 @@ function refreshShow()
 		//drawObject(imgObject[ind],coordList[i][0], coordList[i][1]);
 		//drawText(c_obj[coordList[i][0]+":"+coordList[i][1]], coordList[i][0], coordList[i][1]);
 		addCanvasObject(showCoord[zoom][i][0]/4,showCoord[zoom][i][1]/4, 0);
+		c_obj[zoom][showCoord[zoom][i][0]+":"+showCoord[zoom][i][1]].index = i-1;
 		canvasObjectText.push(c_obj[zoom][showCoord[zoom][i][0]+":"+showCoord[zoom][i][1]].hitCount);
 	//	if (ind == searchIndex) addCanvasObjectAuthor(getX(authorObject.city,authorObject.country)/4,getY(authorObject.city,authorObject.country)/4,authorIndex);
 	
@@ -178,6 +181,7 @@ function refreshShow()
 	if (modeInMap != searchIndex || tempo)
 	{
 		addCanvasObjectAuthor(showCoord[zoom][0][0]/4,showCoord[zoom][0][1]/4, authorIndex);
+		c_obj[zoom][showCoord[zoom][0][0]+":"+showCoord[zoom][0][1]].index = showCoord[zoom].length-1;
 		canvasObjectAuthorText = (c_obj[zoom][showCoord[zoom][0][0]+":"+showCoord[zoom][0][1]].hitCount);
 //	canvasObjectAuthorText = "test";
 	}
@@ -311,9 +315,14 @@ function listenMouseOver(_mouseX, _mouseY, _ind, _obj, _check)
 	if (_check(_mouseX, _mouseY, _ind, _obj))
 	{
 		showCityCountryInfo(_obj);
+		canvasObject[_obj.index].img = 1;
 		return 1;
 	}
-	else return 0;
+	else
+	{
+		return 0;
+		canvasObject[_obj.index].img = 0;
+	}
 }
 
 function listenAllMouseOver(_mouseX, _mouseY, _ind)
