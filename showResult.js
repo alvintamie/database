@@ -105,6 +105,8 @@ function clusterObj(_objArr, _zoom, _ind)
 				_c_obj[stemp].hitCount = _objArr[i].hitCount;
 				coordList.push(new Array(x1,y1));
 			}
+			if (x1 >= 3070 && x1 <= 3092 && y1 >=1980 && y1 <= 2025)
+			console.log(_c_obj[stemp].hitCount)
 							
 		}
 	}
