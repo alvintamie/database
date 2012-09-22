@@ -155,7 +155,8 @@ function refreshShow()
 	if (modeInMap != searchIndex || tempo)
 	{
 		addCanvasObjectAuthor(showCoord[zoom][0][0]/4,showCoord[zoom][0][1]/4, authorIndex);
-		canvasObjectAuthorText = (c_obj[zoom][showCoord[zoom][0][0]+":"+showCoord[zoom][0][1]].hitCount);	
+	//	canvasObjectAuthorText = (c_obj[zoom][showCoord[zoom][0][0]+":"+showCoord[zoom][0][1]].hitCount);
+	canvasObjectAuthorText = "test";
 	}
 	if (highlightObj.status == 1) refreshHighlight();
 
