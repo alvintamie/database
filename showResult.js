@@ -283,6 +283,6 @@ function listenAllMouseOver(_mouseX, _mouseY, _ind)
 	{
 		touchObj = listenMouseOver(_mouseX, _mouseY, _ind, c_obj[zoom][key], checkSquare);
 	}
-	//if (touchObj == 0) showInfoObj.style.display = "none";
+	if (touchObj == 0) showInfoObj.style.display = "none";
 }
 
