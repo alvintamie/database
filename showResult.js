@@ -268,18 +268,21 @@ function showCityCountryInfo(_obj)
 
 function listenMouseOver(_mouseX, _mouseY, _ind, _obj, _check)
 {
-		if (_check(_mouseX, _mouseY, _ind, _obj))
+	if (_check(_mouseX, _mouseY, _ind, _obj))
 	{
 		showCityCountryInfo(_obj);
+		return 1;
 	}
+	else return 0;
 }
 
 function listenAllMouseOver(_mouseX, _mouseY, _ind)
 {
-	console.log("hehe");
-		for (key in c_obj[zoom])
+	var touchObj = 0;
+	for (key in c_obj[zoom])
 	{
-		listenMouseOver(_mouseX, _mouseY, _ind, c_obj[zoom][key], checkSquare)
+		touchObj = listenMouseOver(_mouseX, _mouseY, _ind, c_obj[zoom][key], checkSquare);
 	}
+	if (touchObj == 0) showInfoObj.style.display = "none";
 }
 
