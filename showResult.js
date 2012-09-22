@@ -319,15 +319,15 @@ function listenMouseOver(_mouseX, _mouseY, _ind, _obj, _check)
 	if (_check(_mouseX, _mouseY, _ind, _obj))
 	{
 		showCityCountryInfo(_obj);
-		canvasObjectChange.x = _obj.x;
-		canvasObjectChange.y = _obj.y;
+		canvasObjectChange.x = _obj.x/4;
+		canvasObjectChange.y = _obj.y/4;
 		canvasObjectChange.img = changeIndex;
 		canvasObjectChange.status = 1;
 		return 1;
 	}
 	else
 	{
-		console.log(_obj.index);
+	//	console.log(_obj.index);
 		canvasObjectChange.status = -1;
 	//	canvasObjectChange = new Object();
 		return 0;
