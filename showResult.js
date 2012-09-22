@@ -322,12 +322,14 @@ function listenMouseOver(_mouseX, _mouseY, _ind, _obj, _check)
 		canvasObjectChange.x = _obj.x;
 		canvasObjectChange.y = _obj.y;
 		canvasObjectChange.img = changeIndex;
+		canvasObjectChange.status = 1;
 		return 1;
 	}
 	else
 	{
 		console.log(_obj.index);
-		canvasObjectChange = new Object();
+		canvasObjectChange.status = -1;
+	//	canvasObjectChange = new Object();
 		return 0;
 
 	}
