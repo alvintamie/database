@@ -42,6 +42,10 @@ function clusterObj(_objArr, _zoom, _ind)
 	}
 	
 	multiplier1 *= 20;
+	
+	if (typeof(authorObject.city) == 'undefined' ) authorObject.city = "noCity";
+	if (typeof(authorObject.hitCount) == 'undefined') authorObject.hitCount = 1;
+	
 	var xAuth = Math.floor( getX(authorObject.city, authorObject.country) / multiplier1)*multiplier1 - Math.floor(imgObject[_ind].width/2);
 	var yAuth = Math.floor( getY(authorObject.city,authorObject.country ) / multiplier1)*multiplier1 - Math.floor(imgObject[_ind].height/2);
 	authorObject.x = xAuth;
@@ -50,6 +54,7 @@ function clusterObj(_objArr, _zoom, _ind)
 	_c_obj[stemp] = new Array(authorObject);
 	_c_obj[stemp].x = xAuth;
 	_c_obj[stemp].y = yAuth;
+	_c_obj[stemp].hitCount = authorObject.hitCount;
 	coordList.push(new Array(xAuth, yAuth));
 	
 	
@@ -155,8 +160,8 @@ function refreshShow()
 	if (modeInMap != searchIndex || tempo)
 	{
 		addCanvasObjectAuthor(showCoord[zoom][0][0]/4,showCoord[zoom][0][1]/4, authorIndex);
-	//	canvasObjectAuthorText = (c_obj[zoom][showCoord[zoom][0][0]+":"+showCoord[zoom][0][1]].hitCount);
-	canvasObjectAuthorText = "test";
+		canvasObjectAuthorText = (c_obj[zoom][showCoord[zoom][0][0]+":"+showCoord[zoom][0][1]].hitCount);
+//	canvasObjectAuthorText = "test";
 	}
 	if (highlightObj.status == 1) refreshHighlight();
 
