@@ -137,6 +137,7 @@ function showResult(_ind, _objArr)
 			c_obj.push(clusterObj(_objArr,i,_ind)[0]);
 			showCoord.push(clusterObj(_objArr,i,_ind)[1]);
 		}
+		console.log(c_obj);
 		
 		for (i=1;i<showCoord[zoom].length;++i)
 		{
