@@ -329,7 +329,6 @@ function listenMouseOver(_mouseX, _mouseY, _ind, _obj, _check)
 	else
 	{
 	//	console.log(_obj.index);
-		canvasObjectChange.status = -1;
 	//	canvasObjectChange = new Object();
 		return 0;
 
@@ -344,6 +343,10 @@ function listenAllMouseOver(_mouseX, _mouseY, _ind)
 		if (listenMouseOver(_mouseX, _mouseY, _ind, c_obj[zoom][key], checkSquare))
 			touchObj = 1;
 	}
-	if (touchObj == 0) showInfoObj.style.display = "none";
+	if (touchObj == 0) 
+	{
+		showInfoObj.style.display = "none";
+		canvasObjectChange.status = -1;
+	}
 }
 
