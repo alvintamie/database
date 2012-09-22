@@ -94,7 +94,7 @@ function clusterObj(_objArr, _zoom, _ind)
 			{
 				_c_obj[stemp].push(_objArr[i]);
 				_c_obj[stemp][_c_obj[stemp].length-1].index = i;
-				_c_obj[stemp].hitCount += _objArr[i].hitCount;
+				_c_obj[stemp].hitCount += parseInt(_objArr[i].hitCount);
 			}
 			else 
 			{
@@ -102,7 +102,7 @@ function clusterObj(_objArr, _zoom, _ind)
 				_c_obj[stemp].x = x1;
 				_c_obj[stemp].y = y1;
 				_c_obj[stemp][0].index = i;
-				_c_obj[stemp].hitCount = _objArr[i].hitCount;
+				_c_obj[stemp].hitCount = parseInt(_objArr[i].hitCount);
 				coordList.push(new Array(x1,y1));
 			}
 			if (x1 >= 3190 && x1 <= 3212 && y1 >=1763 && y1 <= 1765)
