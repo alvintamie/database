@@ -46,7 +46,7 @@ function clusterObj(_objArr, _zoom, _ind)
 	
 	if (typeof(authorObject.city) == 'undefined' ) authorObject.city = "noCity";
 	if (typeof(authorObject.hitCount) == 'undefined') authorObject.hitCount = 1;
-	if (typeof(authorObject.country == 'undefined')) tcountry = authorObject.name;
+	if (typeof(authorObject.country) == 'undefined') tcountry = authorObject.name;
 	else tcountry = authorObject.country;
 	//var xAuth = Math.floor( getX(authorObject.city, authorObject.country) / multiplier1)*multiplier1 - Math.floor(imgObject[_ind].width/2);
 	//var yAuth = Math.floor( getY(authorObject.city,authorObject.country ) / multiplier1)*multiplier1 - Math.floor(imgObject[_ind].height/2);
@@ -75,7 +75,7 @@ function clusterObj(_objArr, _zoom, _ind)
 			//CHECK EXISTANCE OF HITCOUNT
 			if (typeof(_objArr[i].hitCount) == 'undefined') _objArr[i].hitCount = 1;
 			//CHECK EXISTANCE OF COUNTRY (REPLACED WITH NAME IF NOT EXIST)
-			if (typeof(_objArr[i].country == 'undefined') tcountry = _objArr[i].name;
+			if (typeof(_objArr[i].country) == 'undefined') tcountry = _objArr[i].name;
 			else tcountry = _objArr[i].country;
 			
 		//	var x1 = Math.floor( getX(_objArr[i].city, _objArr[i].country) / multiplier1)*multiplier1 - Math.floor(imgObject[_ind].width/2);
