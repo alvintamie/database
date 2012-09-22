@@ -262,12 +262,12 @@ function showCityCountryInfo(_obj)
 	
 	if (diffX - canvas.offsetLeft > canvas.width/2) diffX -= 200;
 	
-	showInfoObj.innerHTML = "";
+	showInfoObj.innerHTML = " ";
 	showInfoObj.style.top =  diffY + "px";
 	showInfoObj.style.left = diffX + "px";
 	showInfoObj.style.display = "block";
 	for (i=0;i<_obj.length;++i)
-	showInfoObj.innerHTML += " "+ _obj[i].country; 
+	if (i==0 || (i>0 && _obj[i].country == _obj[i-1].country))showInfoObj.innerHTML += " "+ _obj[i].country; 
 }
 
 function listenMouseOver(_mouseX, _mouseY, _ind, _obj, _check)
