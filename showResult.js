@@ -259,8 +259,8 @@ function showCityCountryInfo(_obj)
 	var i;
 	
 	showInfoObj.innerHTML = "";
-	showInfoObj.style.top = (_obj.y - imageCoords[1] + canvas.offsetTop)%img[zoom].height  + "px";
-	showInfoObj.style.left = (_obj.x - imageCoords[0] + canvas.offsetLeft)%img[zoom].width + "px";
+	showInfoObj.style.top = (_obj.y/multiply[zoom] + imageCoords[1] + canvas.offsetTop)%img[zoom].height  + "px";
+	showInfoObj.style.left = (_obj.x/multiply[zoom] + imageCoords[0] + canvas.offsetLeft)%img[zoom].width + "px";
 	showInfoObj.style.display = "block";
 	for (i=0;i<_obj.length;++i)
 	showInfoObj.innerHTML += " "+ _obj[i].country; 
