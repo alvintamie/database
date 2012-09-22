@@ -257,8 +257,8 @@ function showCityCountryInfo(_obj)
 	var i;
 	
 	showInfoObj.innerHTML = "";
-	showInfoObj.style.top = _obj.y - 50 + "px";
-	showInfoObj.style.left = _obj.x - 300 + "px";
+	showInfoObj.style.top = (_obj.y + imageCoords[1] + canvas.offsetTop)%img[zoom].height - 50 + "px";
+	showInfoObj.style.left = (_obj.x + imageCoords[0] + canvas.offsetLeft)%img[zoom].width - 300 + "px";
 	showInfoObj.style.display = "block";
 	for (i=0;i<_obj.length;++i)
 	showInfoObj.innerHTML += " "+ _obj[i].country; 
