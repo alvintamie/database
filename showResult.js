@@ -258,7 +258,7 @@ function showCityCountryInfo(_obj)
 	var stemp;
 	var i;
 	var diffX = (_obj.x/multiply[zoom] + imageCoords[0] + canvas.offsetLeft)%img[zoom].width;
-	var diifY = (_obj.y/multiply[zoom] + imageCoords[1] + canvas.offsetTop)%img[zoom].height  -100;
+	var diffY = (_obj.y/multiply[zoom] + imageCoords[1] + canvas.offsetTop)%img[zoom].height  -100;
 	
 	if (diffX - canvas.offsetLeft > canvas.width/2) diffX -= 200;
 	
