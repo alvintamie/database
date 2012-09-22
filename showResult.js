@@ -180,7 +180,7 @@ function listenClick(_clickX, _clickY, _ind, _obj, _check)
 		console.log(_obj);
 		updateRelevantDocument(_obj,1);
 		//SEMENTARA:
-		clearHighlight();
+		//clearHighlight();
 		if (modeInMap == viewAllIndex) 1;
 	}
 }
@@ -189,7 +189,6 @@ function listenAllClick(_clickX, _clickY, _ind)
 {
 	//console.log(c_obj);
 	//console.log(showCoord);
-	var i;
 	//console.log("cX,Y: " + _clickX*multiply[zoom]+ " " + _clickY*multiply[zoom]);
 	//console.log(c_obj[zoom]);
 	for (key in c_obj[zoom])
@@ -250,4 +249,24 @@ function renderHighlight()
 
 }
 
+function showCityCountryInfo(_obj)
+{
+	console.log(_obj)
+}
+
+function listenMouseOver(_mouseX, _mouseY, _ind, _obj, _check)
+{
+		if (_check(_clickX, _clickY, _ind, _obj))
+	{
+		showCityCountryInfo(_obj);
+	}
+}
+
+function listenAllMouseOver()
+{
+		for (key in c_obj[zoom])
+	{
+		listenMouseOver(_clickX, _clickY, _ind, c_obj[zoom][key], checkSquare)
+	}
+}
 
