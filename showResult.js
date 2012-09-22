@@ -63,10 +63,11 @@ function clusterObj(_objArr, _zoom, _ind)
 	coordList.push(new Array(xAuth, yAuth));
 	
 	
-	console.log(_objArr.length);
+	
 		
 	for (i=0; i<_objArr.length;++i)
 	{
+		if (typeof(_objArr[i].country) == 'undefined') _objArr[i].country = _objArr[i].name;
 		//console.log("HAHAHA: "+_objArr[i].country );
 		if (_objArr[i].country &&  getX(_objArr[i].city, _objArr[i].country) != null)
 		{
@@ -75,7 +76,7 @@ function clusterObj(_objArr, _zoom, _ind)
 			//CHECK EXISTANCE OF HITCOUNT
 			if (typeof(_objArr[i].hitCount) == 'undefined') _objArr[i].hitCount = 1;
 			//CHECK EXISTANCE OF COUNTRY (REPLACED WITH NAME IF NOT EXIST)
-			if (typeof(_objArr[i].country) == 'undefined') _objArr[i].country = _objArr[i].name;
+		
 			
 			
 			
