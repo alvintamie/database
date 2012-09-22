@@ -12,6 +12,10 @@ highlightObj.x = 0;
 highlightObj.y = 0;
 highlightObj.obj = null;
 var showInfoObj;
+//SEMENTARA (sebelum ada index):
+var tempo = true;
+
+
 //imgObject[10] = new Image();
 //imgObject[10].src = 'https://raw.github.com/alvi0010/map/master/image/person.png';
 
@@ -148,7 +152,7 @@ function refreshShow()
 	
 
 	}
-	if (modeInMap != searchIndex)
+	if (modeInMap != searchIndex || tempo)
 	{
 		addCanvasObjectAuthor(showCoord[zoom][0][0]/4,showCoord[zoom][0][1]/4, authorIndex);
 		canvasObjectAuthorText = (c_obj[zoom][showCoord[zoom][0][0]+":"+showCoord[zoom][0][1]].hitCount);	
