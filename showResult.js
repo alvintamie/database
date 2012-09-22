@@ -276,6 +276,7 @@ function listenMouseOver(_mouseX, _mouseY, _ind, _obj, _check)
 
 function listenAllMouseOver(_mouseX, _mouseY, _ind)
 {
+	console.log("hehe");
 		for (key in c_obj[zoom])
 	{
 		listenMouseOver(_mouseX, _mouseY, _ind, c_obj[zoom][key], checkSquare)
