@@ -258,11 +258,11 @@ function showCityCountryInfo(_obj)
 	var stemp;
 	var i;
 	var countObj = new Array();
-	var diffX = (_obj.x/multiply[zoom] + imageCoords[0] + canvas.offsetLeft)%img[zoom].width;
+	var diffX = (_obj.x/multiply[zoom] + imageCoords[0] + canvas.offsetLeft)%img[zoom].width + 200;
 	var diffY = (_obj.y/multiply[zoom] + imageCoords[1] + canvas.offsetTop)%img[zoom].height  -100;
 	
 	if (diffX < 0) diffX += img[zoom].width;
-	if (diffX - canvas.offsetLeft > canvas.width/2) diffX -= 200;
+	if (diffX - canvas.offsetLeft > canvas.width/2) diffX -= 400;
 	if (diffY - canvas.offsetTop < canvas.height /3) diffY += 200;
 	
 	showInfoObj.innerHTML = "    ";
