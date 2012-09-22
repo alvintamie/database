@@ -320,6 +320,7 @@ function listenMouseOver(_mouseX, _mouseY, _ind, _obj, _check)
 	}
 	else
 	{
+		console.log(_obj);
 		canvasObject[_obj.index].img = 0;
 		return 0;
 
