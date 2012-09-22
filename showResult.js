@@ -252,10 +252,15 @@ function renderHighlight()
 
 function showCityCountryInfo(_obj)
 {
-//	console.log(_obj)
+	console.log(_obj);
+	var stemp;
+	var i;
+	showInfoObj.innerHTML = "";
 	showInfoObj.style.top = _obj.y - 50 + "px";
 	showInfoObj.style.left = _obj.x - 300 + "px";
 	showInfoObj.style.display = "block";
+	for (i=0;i<_obj.length;++i)
+	showInfoObj.innerHTML += " "+ _obj[i].country; 
 }
 
 function listenMouseOver(_mouseX, _mouseY, _ind, _obj, _check)
