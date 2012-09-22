@@ -252,9 +252,9 @@ function renderHighlight()
 
 function showCityCountryInfo(_obj)
 {
-	console.log(_obj.x + " " + _obj.y) ;
-	console.log(imageCoords[0] + " " + imageCoords[1]);
-	console.log(canvas.offsetLeft + " " + canvas.offsetTop );
+//	console.log(_obj.x + " " + _obj.y) ;
+//	console.log(imageCoords[0] + " " + imageCoords[1]);
+//	console.log(canvas.offsetLeft + " " + canvas.offsetTop );
 	var stemp;
 	var i;
 	var countObj = new Array();
