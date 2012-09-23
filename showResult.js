@@ -19,12 +19,10 @@ var showInitialized = 0;
 var c_obj = new Array();
 var showCoord = new Array();
 var multiply = new Array(4,2,1);
-var highlightObj = new Object();
-highlightObj.index = 0;
-highlightObj.status = 0;
-highlightObj.x = 0;
-highlightObj.y = 0;
-highlightObj.obj = null;
+var highlightObjArr = new Array();
+var highlightObj;
+var highlightObjIndex = 0;
+var highlightObjStatus
 var showInfoDiv;
 
 //Cluster Size:
@@ -207,7 +205,7 @@ function refreshShow()
 			canvasObjectAuthorText = (c_obj[zoom][showCoord[zoom][0][0]+":"+showCoord[zoom][0][1]].hitCount);
 	//	canvasObjectAuthorText = "test";
 		}
-		if (highlightObj.status == 1) refreshHighlight();		
+		if (highlightObjStatus == 1) refreshHighlight();		
 	}
 	
 }
@@ -268,38 +266,44 @@ function listenAllClick(_clickX, _clickY, _ind)
 function clearHighlight()
 {
 	clearCanvasObjectHighlight();
-	highlightObj.status = 0;
+	highlightObjStatus = 0;
 }
 
 function highlight(_obj)
 {
 	clearHighlight();
 
-	if (_obj&& _obj.y && _obj.x)
+	for (i=0;i<2;++i)
 	{
-		highlightObj.x = _obj.x ;
-		highlightObj.y = _obj.y ;
-	}
-	else 
-	{
-		highlightObj.x = getX(_obj.city, _obj.country);
-		highlightObj.y = getY(_obj.city, _obj.country);
+		highlightObj = new Object();
+		if (_obj&& _obj.y && _obj.x)
+		{
+			highlightObj.x = _obj.x ;
+			highlightObj.y = _obj.y ;
+		}
+		else 
+		{
+			highlightObj.x = getX(_obj.city, _obj.country);
+			highlightObj.y = getY(_obj.city, _obj.country);
+		}
+		
+		highlightObj.x = Math.floor(highlightObj.x / multiply[i]/clusterSize)*multiply[i]*clusterSize - Math.floor(imgObject[highlightObj.index].width/2);
+		highlightObj.y = Math.floor(highlightObj.y / multiply[i]/clusterSize)*multiply[i]*clusterSize - Math.floor(imgObject[highlightObj.index].height/2);
+		highlightObjArr[i] = highlightObj;		
 	}
 	
-	highlightObj.x = Math.floor(highlightObj.x / multiply[zoom]/clusterSize)*multiply[zoom]*clusterSize - Math.floor(imgObject[highlightObj.index].width/2);
-	highlightObj.y = Math.floor(highlightObj.y / multiply[zoom]/clusterSize)*multiply[zoom]*clusterSize - Math.floor(- imgObject[highlightObj.index].height/2);
 	
-	goTo(highlightObj.x, highlightObj.y, canvas.width/2, canvas.height/2);
-	addCanvasObjectHighlight(highlightObj.x/4, highlightObj.y/4 , highlightObj.index);
-	highlightObj.status = 1;
+	goTo(highlightObj[zoom].x, highlightObj[zoom].y, canvas.width/2, canvas.height/2);
+	addCanvasObjectHighlight(highlightObj[zoom].x/4, highlightObj[zoom].y/4 , highlightObjIndex);
+	highlightObjStatus = 1;
 }
 
 function refreshHighlight()
 {
 	//console.log("hehe: " + highlightObj.status);
 	clearHighlight();
-	addCanvasObjectHighlight(highlightObj.x/4 , highlightObj.y/4 , highlightObj.index);
-	highlightObj.status = 1;
+	addCanvasObjectHighlight(highlightObj[zoom].x/4 , highlightObj[zoom].y/4 , highlightObjIndex);
+	highlightObjStatus = 1;
 }
 
 function oscillate(a)
@@ -312,9 +316,9 @@ function renderHighlight()
 		var currentTime = (new Date())%5000000;
 		var objTemp = new Object();
 		//var dY = new Date();
-		objTemp.x = highlightObj.x/4;
-		objTemp.y =  highlightObj.y/4 - imgObject[highlightObj.index].width - 3*multiply[zoom]*(2+oscillate(currentTime/200));
-		objTemp.img = highlightObj.index;
+		objTemp.x = highlightObj[zoom].x/4;
+		objTemp.y =  highlightObj[zoom].y/4 - imgObject[highlightObjIndex].width - 3*multiply[zoom]*(2+oscillate(currentTime/200));
+		objTemp.img = highlightObj[zoom].index;
 		canvasObjectHighlight[canvasObjectHighlight.length - 1] = objTemp;
 
 }
