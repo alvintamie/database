@@ -8,9 +8,10 @@ var viewAllModeActive = 0;
 var modeInMap = 1;
 
 //Index for picture
-var authorIndex = 0;
 var canvasObjectIndex = 0;
 var changeIndex = 1;
+var highlightObjIndex = 2;
+var authorIndex = 3;
 
 //To initialize showMap (it is initialized if showResult is called);
 var showInitialized = 0;
@@ -21,7 +22,6 @@ var showCoord = new Array();
 var multiply = new Array(4,2,1);
 var highlightObjArr = new Array();
 var highlightObj;
-var highlightObjIndex = 0;
 var highlightObjStatus = 0;
 var showInfoDiv;
 
