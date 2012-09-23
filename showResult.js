@@ -287,8 +287,8 @@ function highlight(_obj)
 			highlightObj.y = getY(_obj.city, _obj.country);
 		}
 		
-		highlightObj.x = Math.floor(highlightObj.x / multiply[i]/clusterSize)*multiply[i]*clusterSize - Math.floor(imgObject[highlightObj.index].width/2);
-		highlightObj.y = Math.floor(highlightObj.y / multiply[i]/clusterSize)*multiply[i]*clusterSize - Math.floor(imgObject[highlightObj.index].height/2);
+		highlightObj.x = Math.floor(highlightObj.x / multiply[i]/clusterSize)*multiply[i]*clusterSize - Math.floor(imgObject[highlightObjIndex].width/2);
+		highlightObj.y = Math.floor(highlightObj.y / multiply[i]/clusterSize)*multiply[i]*clusterSize - Math.floor(imgObject[highlightObjIndex].height/2);
 		highlightObjArr[i] = highlightObj;		
 	}
 	
@@ -318,7 +318,7 @@ function renderHighlight()
 		//var dY = new Date();
 		objTemp.x = highlightObj[zoom].x/4;
 		objTemp.y =  highlightObj[zoom].y/4 - imgObject[highlightObjIndex].width - 3*multiply[zoom]*(2+oscillate(currentTime/200));
-		objTemp.img = highlightObj[zoom].index;
+		objTemp.img = highlightObjIndex;
 		canvasObjectHighlight[canvasObjectHighlight.length - 1] = objTemp;
 
 }
