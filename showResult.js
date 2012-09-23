@@ -211,7 +211,7 @@ function refreshShow()
 
 function checkSquare(_clickX, _clickY, _ind, _obj)
 {
-	if (_clickX >= _obj.x/multiply[zoom] && _clickX <= _obj.x/multiply[zoom] + imgObject[canvasObjectIndex].width && _clickY >= _obj.y/multiply[zoom] && _clickY <= _obj.y/multiply[zoom] + imgObject[canvasIndexObject].height) return  true;
+	if (_clickX >= _obj.x/multiply[zoom] && _clickX <= _obj.x/multiply[zoom] + imgObject[canvasObjectIndex].width && _clickY >= _obj.y/multiply[zoom] && _clickY <= _obj.y/multiply[zoom] + imgObject[canvasObjectIndex].height) return  true;
 	else return false;
 }
 
