@@ -273,7 +273,7 @@ function highlight(_obj)
 {
 	clearHighlight();
 
-	for (i=0;i<2;++i)
+	for (i=0;i<=2;++i)
 	{
 		highlightObj = new Object();
 		if (_obj&& _obj.y && _obj.x)
