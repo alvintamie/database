@@ -61,8 +61,8 @@ function clusterObj(_objArr, _zoom, _ind)
 	if (typeof(authorObject.city) == 'undefined' ) authorObject.city = "noCity";
 	if (typeof(authorObject.hitCount) == 'undefined') authorObject.hitCount = 1;
 	if (typeof(authorObject.country) == 'undefined') authorObject.country = authorObject.name;
-	var xAuth = Math.floor( getX(authorObject.city, authorObject.country) / multiplier1)*multiplier1 - Math.floor(imgObject[_ind].width/2);
-	var yAuth = Math.floor( getY(authorObject.city,authorObject.country ) / multiplier1)*multiplier1 - Math.floor(imgObject[_ind].height/2);
+	var xAuth = Math.floor( getX(authorObject.city, authorObject.country) / multiplier1)*multiplier1 - Math.floor(imgObject[authorIndex].width/2);
+	var yAuth = Math.floor( getY(authorObject.city,authorObject.country ) / multiplier1)*multiplier1 - Math.floor(imgObject[authorIndex].height/2);
 	
 	//var xAuth = Math.floor( getX(authorObject.city,tcountry) / multiplier1)*multiplier1 - Math.floor(imgObject[_ind].width/2);
 //	var yAuth = Math.floor( getY(authorObject.city,tcountry ) / multiplier1)*multiplier1 - Math.floor(imgObject[_ind].height/2);
@@ -94,8 +94,8 @@ function clusterObj(_objArr, _zoom, _ind)
 			
 			
 			
-			var x1 = Math.floor( getX(_objArr[i].city, _objArr[i].country) / multiplier1)*multiplier1 - Math.floor(imgObject[_ind].width/2);
-			var y1 = Math.floor( getY(_objArr[i].city,_objArr[i].country ) / multiplier1)*multiplier1 - Math.floor(imgObject[_ind].height/2);
+			var x1 = Math.floor( getX(_objArr[i].city, _objArr[i].country) / multiplier1)*multiplier1 - Math.floor(imgObject[canvasObjectIndex].width/2);
+			var y1 = Math.floor( getY(_objArr[i].city,_objArr[i].country ) / multiplier1)*multiplier1 - Math.floor(imgObject[canvasObjectIndex].height/2);
 		
 		//	var x1 = Math.floor( getX(_objArr[i].city,tcountry) / multiplier1)*multiplier1 - Math.floor(imgObject[_ind].width/2);
 		//	var y1 = Math.floor( getY(_objArr[i].city,tcountry ) / multiplier1)*multiplier1 - Math.floor(imgObject[_ind].height/2);
@@ -211,8 +211,7 @@ function refreshShow()
 
 function checkSquare(_clickX, _clickY, _ind, _obj)
 {
-	
-	if (_clickX >= _obj.x/multiply[zoom] && _clickX <= _obj.x/multiply[zoom] + imgObject[_ind].width && _clickY >= _obj.y/multiply[zoom] && _clickY <= _obj.y/multiply[zoom] + imgObject[_ind].height) return  true;
+	if (_clickX >= _obj.x/multiply[zoom] && _clickX <= _obj.x/multiply[zoom] + imgObject[canvasObjectIndex].width && _clickY >= _obj.y/multiply[zoom] && _clickY <= _obj.y/multiply[zoom] + imgObject[canvasIndexObject].height) return  true;
 	else return false;
 }
 
