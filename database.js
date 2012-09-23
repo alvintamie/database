@@ -156,16 +156,26 @@ function getX (_city, _country)
 
 function getY (_city, _country)
 {
-	if (getObject(_country) != null)
+	if (typeof(_city) == 'string' && typeof(_country) == 'string')
 	{
-		if (getObject(_city +":"+ _country) != null) return getObject(_city +":"+ _country).y;
-		else if ( getObject(_country).getName() != "null") return getObject(_country).y;
+		if (getObject(_country) != null)
+		{
+			if (getObject(_city +":"+ _country) != null) return getObject(_city +":"+ _country).y;
+			else if ( getObject(_country).getName() != "null") return getObject(_country).y;
+		}
+		else if (getObject(_city+"null") != null) return getObject(_city +":"+"null").y;
+		else 
+		{
+		//	console.log("No country and city specified");
+			return null;
+		}
 	}
-	else if (getObject(_city+"null") != null) return getObject(_city +":"+"null").y;
-	else 
+	else
 	{
-	//	console.log("No country and city specified");
-		return null;
+		console.log("TheParameterForGet_Y_MustBeString! Not like:")
+		console.log(_city);
+		console.log(_country);
+		console.log("///////////////////////////////////////////////")
 	}
 }
 
