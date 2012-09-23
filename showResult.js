@@ -19,7 +19,7 @@ highlightObj.y = 0;
 highlightObj.obj = null;
 var showInfoObj;
 //SEMENTARA (sebelum ada index):
-var tempo = true;
+//var tempo = true;
 
 
 //imgObject[10] = new Image();
@@ -155,7 +155,7 @@ function showResult(_ind, _objArr)
 		}
 		//console.log(showCoord[zoom][0]);
 		
-		if (modeInMap != searchMode || tempo)
+		if (modeInMap != searchMode)
 		{
 			addCanvasObjectAuthor(showCoord[zoom][0][0]/4,showCoord[zoom][0][1]/4, authorIndex);
 			c_obj[zoom][showCoord[zoom][0][0]+":"+showCoord[zoom][0][1]].index = showCoord[zoom].length-1;
@@ -185,7 +185,7 @@ function refreshShow()
 	
 
 	}
-	if (modeInMap != searchMode || tempo)
+	if (modeInMap != searchMode)
 	{
 		addCanvasObjectAuthor(showCoord[zoom][0][0]/4,showCoord[zoom][0][1]/4, authorIndex);
 		c_obj[zoom][showCoord[zoom][0][0]+":"+showCoord[zoom][0][1]].index = showCoord[zoom].length-1;
