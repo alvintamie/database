@@ -71,8 +71,8 @@ function clusterObj(_objArr, _zoom, _ind)
 	authorObject.x = xAuth;
 	authorObject.y = yAuth;
 	
-	xAuth -=   Math.floor(imgObject[authorIndex].width/2);
-	yAuth -=   Math.floor(imgObject[authorIndex].height/2);
+	xAuth = xAuth -    Math.floor(imgObject[authorIndex].width/2);
+	yAuth = yAuth -   Math.floor(imgObject[authorIndex].height/2);
 	
 	stemp = xAuth + ":"+yAuth;
 	_c_obj[stemp] = new Array(authorObject);
@@ -111,7 +111,7 @@ function clusterObj(_objArr, _zoom, _ind)
 			x1 -= Math.floor(imgObject[canvasObjectIndex].width/2);
 			y1 -= Math.floor(imgObject[canvasObjectIndex].height/2);
 			
-			stemp = _objArr[i].x + ":" + _objArr[i].y;
+			stemp = x1 + ":" + y1;
 			if (_c_obj[stemp] )
 			{
 				_c_obj[stemp].push(_objArr[i]);
