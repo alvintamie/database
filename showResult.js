@@ -272,7 +272,8 @@ function clearHighlight()
 function highlight(_obj)
 {
 	clearHighlight();
-
+	console.log("The highlighted Object:")
+	console.log(_obj);
 	for (i=0;i<=2;++i)
 	{
 		highlightObj = new Object();
