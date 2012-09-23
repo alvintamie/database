@@ -1,4 +1,4 @@
-var searchIndex = 1;
+var searchMode = 1;
 var authorIndex = 0;
 var viewAllIndex = 0;
 var changeIndex = 1;
@@ -150,7 +150,7 @@ function showResult(_ind, _objArr)
 		}
 		//console.log(showCoord[zoom][0]);
 		
-		if (_ind != searchIndex || tempo)
+		if (modeInMap != searchMode || tempo)
 		{
 			addCanvasObjectAuthor(showCoord[zoom][0][0]/4,showCoord[zoom][0][1]/4, authorIndex);
 			c_obj[zoom][showCoord[zoom][0][0]+":"+showCoord[zoom][0][1]].index = showCoord[zoom].length-1;
@@ -176,11 +176,11 @@ function refreshShow()
 		addCanvasObject(showCoord[zoom][i][0]/4,showCoord[zoom][i][1]/4, 0);
 		c_obj[zoom][showCoord[zoom][i][0]+":"+showCoord[zoom][i][1]].index = i-1;
 		canvasObjectText.push(c_obj[zoom][showCoord[zoom][i][0]+":"+showCoord[zoom][i][1]].hitCount);
-	//	if (ind == searchIndex) addCanvasObjectAuthor(getX(authorObject.city,authorObject.country)/4,getY(authorObject.city,authorObject.country)/4,authorIndex);
+	//	if (ind == searchMode) addCanvasObjectAuthor(getX(authorObject.city,authorObject.country)/4,getY(authorObject.city,authorObject.country)/4,authorIndex);
 	
 
 	}
-	if (modeInMap != searchIndex || tempo)
+	if (modeInMap != searchMode || tempo)
 	{
 		addCanvasObjectAuthor(showCoord[zoom][0][0]/4,showCoord[zoom][0][1]/4, authorIndex);
 		c_obj[zoom][showCoord[zoom][0][0]+":"+showCoord[zoom][0][1]].index = showCoord[zoom].length-1;
