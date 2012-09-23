@@ -218,11 +218,20 @@ function listenClick(_clickX, _clickY, _ind, _obj, _check)
 	if (_check(_clickX, _clickY, _ind, _obj))
 	{
 		console.log(_obj);
-		if (veiwAllModeActive == 0)	updateRelevantDocument(_obj,1);
+		if (veiwAllModeActive == 0)
+		{
+			if (modeInMap == referenceMode) updateReference(_obj,1);
+			else if (modeInMap == citedByMode) updateCitedBy(_obj,1);
+			else if (modeInMap == relevantDocumentMode)	updateRelevantDocument(_obj,1);
+			else if (modeInMap == coAuthorsMode) updateCoauthors(_obj,1);
+			else if (modeInMap == searchMode) updateSearch(_obj,1);
+
+			
+		}
 		else if (viewAllModeActive == 1) 
 		{
 			if (modeInMap == relevantDocumentMode) getRelevantDocumentFilter1(_obj);
-			if (modeInMap == citedByMode) getCitedbyFilter1(_obj);			
+			else if (modeInMap == citedByMode) getCitedbyFilter1(_obj);			
 		}
 	}
 }
