@@ -307,6 +307,7 @@ function highlight(_obj)
 		addCanvasObjectHighlight(highlightObjArr[zoom].x/4, highlightObjArr[zoom].y/4 , highlightObjIndex);
 		highlightObjStatus = 1;
 	}
+	else console.log(_obj);
 }
 
 function refreshHighlight()
