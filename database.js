@@ -156,7 +156,7 @@ function getX (_city, _country)
 
 function getY (_city, _country)
 {
-	if (typeof(_city) == 'string' && typeof(_country) == 'string')
+	if (typeof(_city) == 'string' || typeof(_country) == 'string')
 	{
 		if (getObject(_country) != null)
 		{
