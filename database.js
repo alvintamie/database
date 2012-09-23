@@ -114,18 +114,22 @@ addCountry(400, "null", 0,0);
 //getObject FUNCTION:
 function getObject(_name)
 {
-	var name = _name.toLowerCase();	
-	if (universityIndex[name] != null) 
-		return university[universityIndex[name]];
-	else if (cityIndex[name] != null)
-		return city[cityIndex[name]];
-	else if (countryIndex[name] != null)
-		return country[countryIndex[name]];
-	else 
+	if (typeof(_name) == 'string')
 	{
-		//console.log("Can't find object" + _name + '\n");
-		return null;
+		var name = _name.toLowerCase();	
+		if (universityIndex[name] != null) 
+			return university[universityIndex[name]];
+		else if (cityIndex[name] != null)
+			return city[cityIndex[name]];
+		else if (countryIndex[name] != null)
+			return country[countryIndex[name]];
+		else 
+		{
+			//console.log("Can't find object" + _name + '\n");
+			return null;
+		}
 	}
+	else console.log(_name);
 }
 
 //getCoordinate FUNCTION:
