@@ -1,13 +1,21 @@
-var referenceMode = 0;
+//The mode choice in the map:
+var referenceMode = 1;
 var citedByMode = 2;
 var relevantDocumentMode = 3;
 var coAuthorsMode = 4;
 var searchMode = 5;
 var viewAllModeActive = 0;
 var modeInMap = 1;
+
+//Index for picture
 var authorIndex = 0;
 var canvasObjectIndex = 0;
 var changeIndex = 1;
+
+//To initialize showMap (it is initialized if showResult is called);
+var showInitialized = 0;
+
+//Some object:
 var c_obj = new Array();
 var showCoord = new Array();
 var multiply = new Array(4,2,1);
@@ -130,6 +138,7 @@ function showResult(_ind, _objArr)
 	
 	if (_ind == modeInMap)
 	{
+		showInitialized = 1;
 		var i;
 		clearCanvasObject();
 		canvasObjectText = [];
@@ -170,31 +179,34 @@ function showResult(_ind, _objArr)
 
 function refreshShow()
 {
-	var i;
-	clearCanvasObject();
-	canvasObjectText = [];
-	canvasObjectAuthorText = "";
-	if (showCoord[zoom])
-	for (i=1;i<showCoord[zoom].length;++i)
+	if (showInitialized)
 	{
-		//drawObject(imgObject[ind],coordList[i][0], coordList[i][1]);
-		//drawText(c_obj[coordList[i][0]+":"+coordList[i][1]], coordList[i][0], coordList[i][1]);
-		addCanvasObject(showCoord[zoom][i][0]/4,showCoord[zoom][i][1]/4, canvasObjectIndex);
-		c_obj[zoom][showCoord[zoom][i][0]+":"+showCoord[zoom][i][1]].index = i-1;
-		canvasObjectText.push(c_obj[zoom][showCoord[zoom][i][0]+":"+showCoord[zoom][i][1]].hitCount);
-	//	if (ind == searchMode) addCanvasObjectAuthor(getX(authorObject.city,authorObject.country)/4,getY(authorObject.city,authorObject.country)/4,authorIndex);
+		var i;
+		clearCanvasObject();
+		canvasObjectText = [];
+		canvasObjectAuthorText = "";
+		if (showCoord[zoom])
+		for (i=1;i<showCoord[zoom].length;++i)
+		{
+			//drawObject(imgObject[ind],coordList[i][0], coordList[i][1]);
+			//drawText(c_obj[coordList[i][0]+":"+coordList[i][1]], coordList[i][0], coordList[i][1]);
+			addCanvasObject(showCoord[zoom][i][0]/4,showCoord[zoom][i][1]/4, canvasObjectIndex);
+			c_obj[zoom][showCoord[zoom][i][0]+":"+showCoord[zoom][i][1]].index = i-1;
+			canvasObjectText.push(c_obj[zoom][showCoord[zoom][i][0]+":"+showCoord[zoom][i][1]].hitCount);
+		//	if (ind == searchMode) addCanvasObjectAuthor(getX(authorObject.city,authorObject.country)/4,getY(authorObject.city,authorObject.country)/4,authorIndex);
+		
 	
-
+		}
+		if (modeInMap != searchMode)
+		{
+			addCanvasObjectAuthor(showCoord[zoom][0][0]/4,showCoord[zoom][0][1]/4, authorIndex);
+			c_obj[zoom][showCoord[zoom][0][0]+":"+showCoord[zoom][0][1]].index = showCoord[zoom].length-1;
+			canvasObjectAuthorText = (c_obj[zoom][showCoord[zoom][0][0]+":"+showCoord[zoom][0][1]].hitCount);
+	//	canvasObjectAuthorText = "test";
+		}
+		if (highlightObj.status == 1) refreshHighlight();		
 	}
-	if (modeInMap != searchMode)
-	{
-		addCanvasObjectAuthor(showCoord[zoom][0][0]/4,showCoord[zoom][0][1]/4, authorIndex);
-		c_obj[zoom][showCoord[zoom][0][0]+":"+showCoord[zoom][0][1]].index = showCoord[zoom].length-1;
-		canvasObjectAuthorText = (c_obj[zoom][showCoord[zoom][0][0]+":"+showCoord[zoom][0][1]].hitCount);
-//	canvasObjectAuthorText = "test";
-	}
-	if (highlightObj.status == 1) refreshHighlight();
-
+	
 }
 
 function checkSquare(_clickX, _clickY, _ind, _obj)
