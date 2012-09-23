@@ -62,14 +62,18 @@ function clusterObj(_objArr, _zoom, _ind)
 	if (typeof(authorObject.city) == 'undefined' ) authorObject.city = "noCity";
 	if (typeof(authorObject.hitCount) == 'undefined') authorObject.hitCount = 1;
 	if (typeof(authorObject.country) == 'undefined') authorObject.country = authorObject.name;
-	var xAuth = Math.floor( getX(authorObject.city, authorObject.country) / multiplier1)*multiplier1 - Math.floor(imgObject[authorIndex].width/2);
-	var yAuth = Math.floor( getY(authorObject.city,authorObject.country ) / multiplier1)*multiplier1 - Math.floor(imgObject[authorIndex].height/2);
+	var xAuth = Math.floor( getX(authorObject.city, authorObject.country) / multiplier1)*multiplier1;
+	var yAuth = Math.floor( getY(authorObject.city,authorObject.country ) / multiplier1)*multiplier1;
 	
 	//var xAuth = Math.floor( getX(authorObject.city,tcountry) / multiplier1)*multiplier1 - Math.floor(imgObject[_ind].width/2);
 //	var yAuth = Math.floor( getY(authorObject.city,tcountry ) / multiplier1)*multiplier1 - Math.floor(imgObject[_ind].height/2);
 	
 	authorObject.x = xAuth;
 	authorObject.y = yAuth;
+	
+	xAuth -=   Math.floor(imgObject[authorIndex].width/2);
+	yAuth -=   Math.floor(imgObject[authorIndex].height/2);
+	
 	stemp = xAuth + ":"+yAuth;
 	_c_obj[stemp] = new Array(authorObject);
 	_c_obj[stemp].x = xAuth;
@@ -95,14 +99,17 @@ function clusterObj(_objArr, _zoom, _ind)
 			
 			
 			
-			var x1 = Math.floor( getX(_objArr[i].city, _objArr[i].country) / multiplier1)*multiplier1 - Math.floor(imgObject[canvasObjectIndex].width/2);
-			var y1 = Math.floor( getY(_objArr[i].city,_objArr[i].country ) / multiplier1)*multiplier1 - Math.floor(imgObject[canvasObjectIndex].height/2);
+			var x1 = Math.floor( getX(_objArr[i].city, _objArr[i].country) / multiplier1)*multiplier1;
+			var y1 = Math.floor( getY(_objArr[i].city,_objArr[i].country ) / multiplier1)*multiplier1 ;
 		
 		//	var x1 = Math.floor( getX(_objArr[i].city,tcountry) / multiplier1)*multiplier1 - Math.floor(imgObject[_ind].width/2);
 		//	var y1 = Math.floor( getY(_objArr[i].city,tcountry ) / multiplier1)*multiplier1 - Math.floor(imgObject[_ind].height/2);
 			//console.log("HIHIHI " + x1);
 			_objArr[i].x = x1;
 			_objArr[i].y = y1;
+			
+			x1 -= Math.floor(imgObject[canvasObjectIndex].width/2);
+			y1 -= Math.floor(imgObject[canvasObjectIndex].height/2);
 			
 			stemp = _objArr[i].x + ":" + _objArr[i].y;
 			if (_c_obj[stemp] )
