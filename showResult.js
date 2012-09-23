@@ -278,8 +278,8 @@ function clearHighlight()
 
 function highlight(_obj)
 {
-//	if (  ( typeof(_obj.x) != 'undefined' && typeof(_obj.y) != 'undefined') ||  typeof(_obj.country)!= 'undefined' || typeof(_obj.city)!='undefined' )
-//	{
+	if (  ( typeof(_obj.x) != 'undefined' && typeof(_obj.y) != 'undefined') ||  typeof(_obj.country)!= 'undefined' || typeof(_obj.city)!='undefined' )
+	{
 		clearHighlight();
 		console.log("The highlighted Object:")
 		console.log(_obj);
@@ -306,8 +306,8 @@ function highlight(_obj)
 		goTo(highlightObjArr[zoom].x, highlightObjArr[zoom].y, canvas.width/2, canvas.height/2);
 		addCanvasObjectHighlight(highlightObjArr[zoom].x/4, highlightObjArr[zoom].y/4 , highlightObjIndex);
 		highlightObjStatus = 1;
-//	}
-//	else console.log(_obj);
+	}
+	else console.log(_obj);
 }
 
 function refreshHighlight()
