@@ -278,7 +278,7 @@ function clearHighlight()
 
 function highlight(_obj)
 {
-	if (  ( typeof(_Obj.x) != 'undefined' && typeof(_Obj.y) != 'undefined') ||  typeof(_obj.country)!= 'undefined' || typeof(_obj.city)!='undefined' )
+	if (  ( typeof(_obj.x) != 'undefined' && typeof(_obj.y) != 'undefined') ||  typeof(_obj.country)!= 'undefined' || typeof(_obj.city)!='undefined' )
 	{
 		clearHighlight();
 		console.log("The highlighted Object:")
