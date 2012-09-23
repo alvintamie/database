@@ -278,32 +278,35 @@ function clearHighlight()
 
 function highlight(_obj)
 {
-	clearHighlight();
-	console.log("The highlighted Object:")
-	console.log(_obj);
-	for (i=0;i<=2;++i)
+	if (  (typeof(highlightObj.x) != 'undefined' && typeof(highlightObj.y) != 'undefined') ||  typeof(_obj.country)!= 'undefined' || typeof(_obj.city)!='undefined' )
 	{
-		highlightObj = new Object();
-		if (_obj&& _obj.y && _obj.x)
+		clearHighlight();
+		console.log("The highlighted Object:")
+		console.log(_obj);
+		for (i=0;i<=2;++i)
 		{
-			highlightObj.x = _obj.x ;
-			highlightObj.y = _obj.y ;
-		}
-		else 
-		{
-			highlightObj.x = getX(_obj.city, _obj.country);
-			highlightObj.y = getY(_obj.city, _obj.country);
+			highlightObj = new Object();
+			if (_obj&& _obj.y && _obj.x)
+			{
+				highlightObj.x = _obj.x ;
+				highlightObj.y = _obj.y ;
+			}
+			else 
+			{
+				highlightObj.x = getX(_obj.city, _obj.country);
+				highlightObj.y = getY(_obj.city, _obj.country);
+			}
+			
+			highlightObj.x = Math.floor(highlightObj.x / multiply[i]/clusterSize)*multiply[i]*clusterSize - Math.floor(imgObject[highlightObjIndex].width/2);
+			highlightObj.y = Math.floor(highlightObj.y / multiply[i]/clusterSize)*multiply[i]*clusterSize - Math.floor(imgObject[highlightObjIndex].height/2);
+			highlightObjArr[i] = highlightObj;		
 		}
 		
-		highlightObj.x = Math.floor(highlightObj.x / multiply[i]/clusterSize)*multiply[i]*clusterSize - Math.floor(imgObject[highlightObjIndex].width/2);
-		highlightObj.y = Math.floor(highlightObj.y / multiply[i]/clusterSize)*multiply[i]*clusterSize - Math.floor(imgObject[highlightObjIndex].height/2);
-		highlightObjArr[i] = highlightObj;		
+		
+		goTo(highlightObjArr[zoom].x, highlightObjArr[zoom].y, canvas.width/2, canvas.height/2);
+		addCanvasObjectHighlight(highlightObjArr[zoom].x/4, highlightObjArr[zoom].y/4 , highlightObjIndex);
+		highlightObjStatus = 1;
 	}
-	
-	
-	goTo(highlightObjArr[zoom].x, highlightObjArr[zoom].y, canvas.width/2, canvas.height/2);
-	addCanvasObjectHighlight(highlightObjArr[zoom].x/4, highlightObjArr[zoom].y/4 , highlightObjIndex);
-	highlightObjStatus = 1;
 }
 
 function refreshHighlight()
