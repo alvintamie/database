@@ -26,6 +26,9 @@ highlightObj.x = 0;
 highlightObj.y = 0;
 highlightObj.obj = null;
 var showInfoDiv;
+
+//Cluster Size:
+var clusterSize = 35;
 //SEMENTARA (sebelum ada index):
 //var tempo = true;
 
@@ -56,7 +59,7 @@ function clusterObj(_objArr, _zoom, _ind)
 		multiplier1 *= 2;
 	}
 	
-	multiplier1 *= 35;
+	multiplier1 *= clusterSize;
 	
 	if (typeof(authorObject.city) == 'undefined' ) authorObject.city = "noCity";
 	if (typeof(authorObject.hitCount) == 'undefined') authorObject.hitCount = 1;
@@ -274,14 +277,18 @@ function highlight(_obj)
 
 	if (_obj&& _obj.y && _obj.x)
 	{
-		highlightObj.x = _obj.x - imgObject[highlightObj.index].width/2;
-		highlightObj.y = _obj.y - imgObject[highlightObj.index].height/2;
+		highlightObj.x = _obj.x ;
+		highlightObj.y = _obj.y ;
 	}
 	else 
 	{
-		highlightObj.x = getX(_obj.city, _obj.country)- imgObject[highlightObj.index].width/2;
-		highlightObj.y = getY(_obj.city, _obj.country)- imgObject[highlightObj.index].height/2;
+		highlightObj.x = getX(_obj.city, _obj.country);
+		highlightObj.y = getY(_obj.city, _obj.country);
 	}
+	
+	highlightObj.x = Math.floor(highlightObj.x / multiply[zoom]/clusterSize)*multiply[zoom]*clusterSize - Math.floor(imgObject[highlightObj.index].width/2);
+	highlightObj.y = Math.floor(highlightObj.y / multiply[zoom]/clusterSize)*multiply[zoom]*clusterSize - Math.floor(- imgObject[highlightObj.index].height/2);
+	
 	goTo(highlightObj.x, highlightObj.y, canvas.width/2, canvas.height/2);
 	addCanvasObjectHighlight(highlightObj.x/4, highlightObj.y/4 , highlightObj.index);
 	highlightObj.status = 1;
