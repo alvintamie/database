@@ -22,7 +22,7 @@ var multiply = new Array(4,2,1);
 var highlightObjArr = new Array();
 var highlightObj;
 var highlightObjIndex = 0;
-var highlightObjStatus
+var highlightObjStatus = 0;
 var showInfoDiv;
 
 //Cluster Size:
