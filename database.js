@@ -129,7 +129,12 @@ function getObject(_name)
 			return null;
 		}
 	}
-	else console.log(_name);
+	else 
+	{
+		console.log("TheParameterForGetObjectMustBeString! Not like:")
+		console.log(_name);
+		console.log("///////////////////////////////////////////////")
+	}
 }
 
 //getCoordinate FUNCTION:
