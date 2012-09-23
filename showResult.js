@@ -1,11 +1,16 @@
+var referenceMode = 0;
+var citedByMode = 0;
+var relevantDocumentMode = 0;
+var coAuthorMode = 0;
 var searchMode = 1;
+var viewAllModeActive = 0;
+var modeInMap = 1;
 var authorIndex = 0;
-var viewAllIndex = 0;
+var cavasObjectIndex = 0;
 var changeIndex = 1;
 var c_obj = new Array();
 var showCoord = new Array();
 var multiply = new Array(4,2,1);
-var modeInMap = 0;
 var highlightObj = new Object();
 highlightObj.index = 0;
 highlightObj.status = 0;
@@ -213,10 +218,12 @@ function listenClick(_clickX, _clickY, _ind, _obj, _check)
 	if (_check(_clickX, _clickY, _ind, _obj))
 	{
 		console.log(_obj);
-		updateRelevantDocument(_obj,1);
-		//SEMENTARA:
-		//clearHighlight();
-		if (modeInMap == viewAllIndex) 1;
+		if (veiwAllModeActive == 0)	updateRelevantDocument(_obj,1);
+		else if (viewAllModeActive == 1) 
+		{
+			if (modeInMap == relevantDocumentMode) getRelevantDocumentFilter1(_obj);
+			if (modeInMap == citedByMode) getCitedbyFilter1(_obj);			
+		}
 	}
 }
 
