@@ -293,8 +293,8 @@ function highlight(_obj)
 	}
 	
 	
-	goTo(highlightObj[zoom].x, highlightObj[zoom].y, canvas.width/2, canvas.height/2);
-	addCanvasObjectHighlight(highlightObj[zoom].x/4, highlightObj[zoom].y/4 , highlightObjIndex);
+	goTo(highlightObjArr[zoom].x, highlightObjArr[zoom].y, canvas.width/2, canvas.height/2);
+	addCanvasObjectHighlight(highlightObjArr[zoom].x/4, highlightObjArr[zoom].y/4 , highlightObjIndex);
 	highlightObjStatus = 1;
 }
 
@@ -302,7 +302,7 @@ function refreshHighlight()
 {
 	//console.log("hehe: " + highlightObj.status);
 	clearHighlight();
-	addCanvasObjectHighlight(highlightObj[zoom].x/4 , highlightObj[zoom].y/4 , highlightObjIndex);
+	addCanvasObjectHighlight(highlightObjArr[zoom].x/4 , highlightObjArr[zoom].y/4 , highlightObjIndex);
 	highlightObjStatus = 1;
 }
 
@@ -316,8 +316,8 @@ function renderHighlight()
 		var currentTime = (new Date())%5000000;
 		var objTemp = new Object();
 		//var dY = new Date();
-		objTemp.x = highlightObj[zoom].x/4;
-		objTemp.y =  highlightObj[zoom].y/4 - imgObject[highlightObjIndex].width - 3*multiply[zoom]*(2+oscillate(currentTime/200));
+		objTemp.x = highlightObjArr[zoom].x/4;
+		objTemp.y =  highlightObjArr[zoom].y/4 - imgObject[highlightObjIndex].width - 3*multiply[zoom]*(2+oscillate(currentTime/200));
 		objTemp.img = highlightObjIndex;
 		canvasObjectHighlight[canvasObjectHighlight.length - 1] = objTemp;
 
