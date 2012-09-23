@@ -127,6 +127,7 @@ function clusterObj(_objArr, _zoom, _ind)
 
 function showResult(_ind, _objArr)
 {
+	
 	if (_ind == modeInMap)
 	{
 		var i;
@@ -218,7 +219,7 @@ function listenClick(_clickX, _clickY, _ind, _obj, _check)
 	if (_check(_clickX, _clickY, _ind, _obj))
 	{
 		console.log(_obj);
-		if (veiwAllModeActive == 0)
+		if (viewAllModeActive == 0)
 		{
 			if (modeInMap == referenceMode) updateReference(_obj,1);
 			else if (modeInMap == citedByMode) updateCitedBy(_obj,1);
