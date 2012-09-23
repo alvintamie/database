@@ -26,7 +26,7 @@ var highlightObjStatus = 0;
 var showInfoDiv;
 
 //Cluster Size:
-var clusterSize = 35;
+var clusterSize = 38;
 //SEMENTARA (sebelum ada index):
 //var tempo = true;
 
