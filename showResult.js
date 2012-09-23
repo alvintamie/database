@@ -25,7 +25,7 @@ highlightObj.status = 0;
 highlightObj.x = 0;
 highlightObj.y = 0;
 highlightObj.obj = null;
-var showInfoObj;
+var showInfoDiv;
 //SEMENTARA (sebelum ada index):
 //var tempo = true;
 
@@ -330,17 +330,17 @@ function showCityCountryInfo(_obj)
 	if (diffX - canvas.offsetLeft > canvas.width/2) diffX -= 290;
 	if (diffY - canvas.offsetTop < canvas.height /3) diffY += 150;
 	
-	showInfoObj.innerHTML = "    ";
-	showInfoObj.style.top =  diffY + "px";
-	showInfoObj.style.left = diffX + "px";
-	showInfoObj.style.display = "block";
+	showInfoDiv.innerHTML = "    ";
+	showInfoDiv.style.top =  diffY + "px";
+	showInfoDiv.style.left = diffX + "px";
+	showInfoDiv.style.display = "block";
 	for (i=_obj.length-1; i>=0;--i )
 	{
 		if (i==_obj.length-1 || (i<_obj.length-1 && _obj[i].country != _obj[i+1].country)) countObj[i]=_obj[i].hitCount;
 		else countObj[i] = countObj[i+1] + _obj[i].hitCount;
 	}
 	for (i=0;i<_obj.length;++i)
-	if (i==0 || (i>0 && _obj[i].country != _obj[i-1].country))showInfoObj.innerHTML +=  _obj[i].country +"(" + countObj[i] + ")" + "<br>"; 
+	if (i==0 || (i>0 && _obj[i].country != _obj[i-1].country))showInfoDiv.innerHTML +=  _obj[i].country +"(" + countObj[i] + ")" + "<br>"; 
 }
 
 function listenMouseOver(_mouseX, _mouseY, _ind, _obj, _check)
@@ -374,7 +374,7 @@ function listenAllMouseOver(_mouseX, _mouseY, _ind)
 	}
 	if (touchObj == 0) 
 	{
-		showInfoObj.style.display = "none";
+		showInfoDiv.style.display = "none";
 		canvasObjectChange.status = -1;
 	}
 }
