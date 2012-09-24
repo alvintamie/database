@@ -370,10 +370,15 @@ function showCityCountryInfo(_obj)
 			if (i==_obj.length-1 || (i<_obj.length-1 && _obj[i].country != _obj[i+1].country)) countObj[i]=_obj[i].hitCount;
 			else countObj[i] = countObj[i+1] + _obj[i].hitCount;
 		}
+		j = 0;
 		for (i=0;i<_obj.length;++i)
 		{
-			if (i==0 || (i>0 && _obj[i].country != _obj[i-1].country))showInfoDiv.innerHTML +=  _obj[i].country +"(" + countObj[i] + ")" + "<br>"; 
-			if (i >= 10)
+			if (i==0 || (i>0 && _obj[i].country != _obj[i-1].country))
+			{
+				showInfoDiv.innerHTML +=  _obj[i].country +"(" + countObj[i] + ")" + "<br>"; 
+				j++;
+			}
+			if (j >= 10)
 			{
 				showInfoDiv.innerHTML += ". . ." + "<br>";
 				break;
@@ -389,10 +394,15 @@ function showCityCountryInfo(_obj)
 			if (i==_obj.length-1 || (i<_obj.length-1 && _obj[i].city != _obj[i+1].city)) countObj[i]=_obj[i].hitCount;
 			else countObj[i] = countObj[i+1] + _obj[i].hitCount;
 		}
+		j = 0;
 		for (i=0;i<_obj.length;++i)
 		{
-			if (i==0 || (i>0 && _obj[i].city != _obj[i-1].city))showInfoDiv.innerHTML +=  _obj[i].city+","+ _obj[i].country +"(" + countObj[i] + ")" +  "<br>"; 
-			if (i >= 10) 
+			if (i==0 || (i>0 && _obj[i].city != _obj[i-1].city))
+			{
+				showInfoDiv.innerHTML +=  _obj[i].city+","+ _obj[i].country +"(" + countObj[i] + ")" +  "<br>"; 
+				j++;
+			}
+			if (j >= 10) 
 			{
 				showInfoDiv.innerHTML += ". . ." + "<br>";
 				break;
