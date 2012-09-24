@@ -96,7 +96,7 @@ function clusterObj(_objArr, _zoom, _ind)
 		if (_objArr[i].country &&  getX(_objArr[i].city, _objArr[i].country) != null)
 		{
 			//CHECK EXISTANCE OF CITY
-			if (typeof(_objArr[i].city) == 'undefined') _objArr[i].city = "noCity";
+			if (typeof(_objArr[i].city) == 'undefined') _objArr[i].city = _objArr[i].country;
 			//CHECK EXISTANCE OF HITCOUNT
 			if (typeof(_objArr[i].hitCount) == 'undefined') _objArr[i].hitCount = 1;
 			//CHECK EXISTANCE OF COUNTRY (REPLACED WITH NAME IF NOT EXIST)
