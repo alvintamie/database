@@ -224,7 +224,7 @@ function refreshShow()
 
 function checkSquare(_clickX, _clickY, _ind, _obj)
 {
-	if (_clickX >= _obj.x/multiply[zoom] && _clickX <= _obj.x/multiply[zoom] + imgObject[canvasObjectIndex].width && _clickY >= _obj.y/multiply[zoom] && _clickY <= _obj.y/multiply[zoom] + imgObject[canvasObjectIndex].height) return  true;
+	if (_clickX - halfPointerWidth >= _obj.x/multiply[zoom] && _clickX - halfPointerWidth <= _obj.x/multiply[zoom] + imgObject[canvasObjectIndex].width && _clickY - halfPointerHeight >= _obj.y/multiply[zoom] && _clickY-halfPointerHeight <= _obj.y/multiply[zoom] + imgObject[canvasObjectIndex].height) return  true;
 	else return false;
 }
 
@@ -271,7 +271,7 @@ function listenAllClick(_clickX, _clickY, _ind)
 	{
 		
 		//console.log(_ind);
-		listenClick(_clickX - halfPointerWidth, _clickY - halfPointerHeight, _ind, c_obj[zoom][key], checkSquare)
+		listenClick(_clickX, _clickY, _ind, c_obj[zoom][key], checkSquare)
 	}	
 }
 
