@@ -383,7 +383,7 @@ function showCityCountryInfo(_obj)
 	}
 	else if (zoom == 2 && viewAllModeActive == 0)
 	{
-		showInfoDiv.style["font-size"] = "11px";
+		showInfoDiv.style["font-size"] = "12px";
 		for (i=_obj.length-1; i>=0;--i )
 		{
 			if (i==_obj.length-1 || (i<_obj.length-1 && _obj[i].city != _obj[i+1].city)) countObj[i]=_obj[i].hitCount;
