@@ -354,7 +354,7 @@ function showCityCountryInfo(_obj)
 	if (diffX < 0) diffX += img[zoom].width;
 	diffX += 70;
 	diffY -= 100;
-	if (diffX - canvas.offsetLeft > canvas.width/2) diffX -= 290;
+	if (diffX - canvas.offsetLeft > canvas.width/2) diffX -= 330;
 	if (diffY - canvas.offsetTop < canvas.height /3) diffY += 150;
 	
 	showInfoDiv.innerHTML = "    ";
