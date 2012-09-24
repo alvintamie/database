@@ -364,6 +364,7 @@ function showCityCountryInfo(_obj)
 	
 	if (zoom == 0 || zoom == 1 || viewAllModeActive == 1)
 	{
+		showInfoDiv.style["font-size"] = 10;
 		for (i=_obj.length-1; i>=0;--i )
 		{
 			if (i==_obj.length-1 || (i<_obj.length-1 && _obj[i].country != _obj[i+1].country)) countObj[i]=_obj[i].hitCount;
@@ -382,6 +383,7 @@ function showCityCountryInfo(_obj)
 	}
 	else if (zoom == 2 && viewAllModeActive == 0)
 	{
+		showInfoDiv.style["font-size"] = 8;
 		for (i=_obj.length-1; i>=0;--i )
 		{
 			if (i==_obj.length-1 || (i<_obj.length-1 && _obj[i].city != _obj[i+1].city)) countObj[i]=_obj[i].hitCount;
