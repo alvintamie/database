@@ -389,7 +389,7 @@ function showCityCountryInfo(_obj)
 		}
 		for (i=0;i<_obj.length;++i)
 		{
-			if (i==0 || (i>0 && _obj[i].city != _obj[i-1].city))showInfoDiv.innerHTML +=  _obj[i].city +"(" + countObj[i] + ")" + "<br>"; 
+			if (i==0 || (i>0 && _obj[i].city != _obj[i-1].city))showInfoDiv.innerHTML +=  _obj[i].city+","+ _obj[i].country +"(" + countObj[i] + ")" +  "<br>"; 
 			if (i >= 10) 
 			{
 				showInfoDiv.innerHTML += ". . ." + "<br>";
