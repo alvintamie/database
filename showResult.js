@@ -27,6 +27,11 @@ var showInfoDiv;
 
 //Cluster Size:
 var clusterSize = 38;
+
+//FOR ADJUSTMENT:
+var halfPointerWidth = 7;
+var halfPointerHeight = 7;
+
 //SEMENTARA (sebelum ada index):
 //var tempo = true;
 
@@ -266,7 +271,7 @@ function listenAllClick(_clickX, _clickY, _ind)
 	{
 		
 		//console.log(_ind);
-		listenClick(_clickX, _clickY, _ind, c_obj[zoom][key], checkSquare)
+		listenClick(_clickX - halfPointerWidth, _clickY - halfPointerHeight, _ind, c_obj[zoom][key], checkSquare)
 	}	
 }
 
