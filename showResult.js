@@ -76,8 +76,8 @@ function clusterObj(_objArr, _zoom, _ind)
 	authorObject.x = xAuth;
 	authorObject.y = yAuth;
 	
-	xAuth = xAuth -    Math.floor(imgObject[authorIndex].width/2);
-	yAuth = yAuth -   Math.floor(imgObject[authorIndex].height/2);
+	xAuth = xAuth -    Math.floor(imgObject[authorIndex].width/2) + multiplier1/4;
+	yAuth = yAuth -   Math.floor(imgObject[authorIndex].height/2) + multiplier1/4;
 	
 	stemp = xAuth + ":"+yAuth;
 	_c_obj[stemp] = new Array(authorObject);
@@ -113,8 +113,8 @@ function clusterObj(_objArr, _zoom, _ind)
 			_objArr[i].x = x1;
 			_objArr[i].y = y1;
 			
-			x1 -= Math.floor(imgObject[canvasObjectIndex].width/2);
-			y1 -= Math.floor(imgObject[canvasObjectIndex].height/2);
+			x1 -= Math.floor(imgObject[canvasObjectIndex].width/2) - multiplier1/4;
+			y1 -= Math.floor(imgObject[canvasObjectIndex].height/2) - multiplier1/4;
 			
 			stemp = x1 + ":" + y1;
 			if (_c_obj[stemp] )
@@ -302,8 +302,8 @@ function highlight(_obj)
 				highlightObj.y = getY(_obj.city, _obj.country);
 			}
 			
-			highlightObj.x = Math.floor(highlightObj.x / multiply[i]/clusterSize)*multiply[i]*clusterSize - Math.floor(imgObject[highlightObjIndex].width/2);
-			highlightObj.y = Math.floor(highlightObj.y / multiply[i]/clusterSize)*multiply[i]*clusterSize - Math.floor(imgObject[highlightObjIndex].height/2);
+			highlightObj.x = Math.floor(highlightObj.x / multiply[i]/clusterSize)*multiply[i]*clusterSize - Math.floor(imgObject[highlightObjIndex].width/2) + multiply[i]*clusterSize/4;
+			highlightObj.y = Math.floor(highlightObj.y / multiply[i]/clusterSize)*multiply[i]*clusterSize - Math.floor(imgObject[highlightObjIndex].height/2) + multiply[i]*clusterSize/4;
 			highlightObjArr[i] = highlightObj;		
 		}
 		
