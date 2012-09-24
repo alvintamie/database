@@ -63,32 +63,34 @@ function clusterObj(_objArr, _zoom, _ind)
 	}
 	
 	multiplier1 *= clusterSize;
-	
-	if (typeof(authorObject.city) == 'undefined' ) authorObject.city = authorObject.country;
-	if (typeof(authorObject.hitCount) == 'undefined') authorObject.hitCount = 1;
-	if (typeof(authorObject.country) == 'undefined') authorObject.country = authorObject.name;
-	var xAuth = Math.floor( getX(authorObject.city, authorObject.country) / multiplier1)*multiplier1;
-	var yAuth = Math.floor( getY(authorObject.city,authorObject.country ) / multiplier1)*multiplier1;
-	
-	//var xAuth = Math.floor( getX(authorObject.city,tcountry) / multiplier1)*multiplier1 - Math.floor(imgObject[_ind].width/2);
-//	var yAuth = Math.floor( getY(authorObject.city,tcountry ) / multiplier1)*multiplier1 - Math.floor(imgObject[_ind].height/2);
-	
-	authorObject.x = xAuth;
-	authorObject.y = yAuth;
-	
-	xAuth = xAuth -    Math.floor(imgObject[authorIndex].width/2) + multiplier1/4;
-	yAuth = yAuth -   Math.floor(imgObject[authorIndex].height/2) + multiplier1/4;
-	
-	stemp = xAuth + ":"+yAuth;
-	_c_obj[stemp] = new Array(authorObject);
-	_c_obj[stemp].x = xAuth;
-	_c_obj[stemp].y = yAuth;
-	_c_obj[stemp].hitCount = authorObject.hitCount;
-	coordList.push(new Array(xAuth, yAuth));
-	
-	
-	
+	if (authorObject != _objArr[0])
+	{
+		if (typeof(authorObject.city) == 'undefined' ) authorObject.city = authorObject.country;
+		if (typeof(authorObject.hitCount) == 'undefined') authorObject.hitCount = 1;
+		if (typeof(authorObject.country) == 'undefined') authorObject.country = authorObject.name;
+		var xAuth = Math.floor( getX(authorObject.city, authorObject.country) / multiplier1)*multiplier1;
+		var yAuth = Math.floor( getY(authorObject.city,authorObject.country ) / multiplier1)*multiplier1;
 		
+		//var xAuth = Math.floor( getX(authorObject.city,tcountry) / multiplier1)*multiplier1 - Math.floor(imgObject[_ind].width/2);
+	//	var yAuth = Math.floor( getY(authorObject.city,tcountry ) / multiplier1)*multiplier1 - Math.floor(imgObject[_ind].height/2);
+		
+		authorObject.x = xAuth;
+		authorObject.y = yAuth;
+		
+		xAuth = xAuth -    Math.floor(imgObject[authorIndex].width/2) + multiplier1/4;
+		yAuth = yAuth -   Math.floor(imgObject[authorIndex].height/2) + multiplier1/4;
+		
+		stemp = xAuth + ":"+yAuth;
+		_c_obj[stemp] = new Array(authorObject);
+		_c_obj[stemp].x = xAuth;
+		_c_obj[stemp].y = yAuth;
+		_c_obj[stemp].hitCount = authorObject.hitCount;
+		coordList.push(new Array(xAuth, yAuth));
+	}
+	
+	
+	
+	
 	for (i=0; i<_objArr.length;++i)
 	{
 		if (typeof(_objArr[i].country) == 'undefined') _objArr[i].country = _objArr[i].name;
