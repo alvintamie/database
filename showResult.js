@@ -29,8 +29,8 @@ var showInfoDiv;
 var clusterSize = 38;
 
 //FOR ADJUSTMENT:
-var halfPointerWidth = 7;
-var halfPointerHeight = 7;
+var halfPointerWidth = 50;
+var halfPointerHeight = 50;
 
 //SEMENTARA (sebelum ada index):
 //var tempo = true;
