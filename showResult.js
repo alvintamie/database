@@ -64,7 +64,7 @@ function clusterObj(_objArr, _zoom, _ind)
 	
 	multiplier1 *= clusterSize;
 	
-	if (typeof(authorObject.city) == 'undefined' ) authorObject.city = "noCity";
+	if (typeof(authorObject.city) == 'undefined' ) authorObject.city = authorObject.country;
 	if (typeof(authorObject.hitCount) == 'undefined') authorObject.hitCount = 1;
 	if (typeof(authorObject.country) == 'undefined') authorObject.country = authorObject.name;
 	var xAuth = Math.floor( getX(authorObject.city, authorObject.country) / multiplier1)*multiplier1;
@@ -76,8 +76,8 @@ function clusterObj(_objArr, _zoom, _ind)
 	authorObject.x = xAuth;
 	authorObject.y = yAuth;
 	
-	xAuth = xAuth -    Math.floor(imgObject[authorIndex].width/2) + multiplier1/2;
-	yAuth = yAuth -   Math.floor(imgObject[authorIndex].height/2) + multiplier1/2;
+	xAuth = xAuth -    Math.floor(imgObject[authorIndex].width/2) + multiplier1/4;
+	yAuth = yAuth -   Math.floor(imgObject[authorIndex].height/2) + multiplier1/4;
 	
 	stemp = xAuth + ":"+yAuth;
 	_c_obj[stemp] = new Array(authorObject);
@@ -113,8 +113,8 @@ function clusterObj(_objArr, _zoom, _ind)
 			_objArr[i].x = x1;
 			_objArr[i].y = y1;
 			
-			x1 -= Math.floor(imgObject[canvasObjectIndex].width/2) - multiplier1/2;
-			y1 -= Math.floor(imgObject[canvasObjectIndex].height/2) - multiplier1/2;
+			x1 -= Math.floor(imgObject[canvasObjectIndex].width/2) - multiplier1/4;
+			y1 -= Math.floor(imgObject[canvasObjectIndex].height/2) - multiplier1/4;
 			
 			stemp = x1 + ":" + y1;
 			if (_c_obj[stemp] )
