@@ -370,7 +370,15 @@ function showCityCountryInfo(_obj)
 			else countObj[i] = countObj[i+1] + _obj[i].hitCount;
 		}
 		for (i=0;i<_obj.length;++i)
-		if (i==0 || (i>0 && _obj[i].country != _obj[i-1].country))showInfoDiv.innerHTML +=  _obj[i].country +"(" + countObj[i] + ")" + "<br>"; 
+		{
+			if (i==0 || (i>0 && _obj[i].country != _obj[i-1].country))showInfoDiv.innerHTML +=  _obj[i].country +"(" + countObj[i] + ")" + "<br>"; 
+			if (i >= 10)
+			{
+				showInfoDiv.innerHTML += ". . ." + "<br>";
+				break;
+			}
+		}
+		
 	}
 	else if (zoom == 2 && viewAllModeActive == 0)
 	{
@@ -380,7 +388,15 @@ function showCityCountryInfo(_obj)
 			else countObj[i] = countObj[i+1] + _obj[i].hitCount;
 		}
 		for (i=0;i<_obj.length;++i)
-		if (i==0 || (i>0 && _obj[i].city != _obj[i-1].city))showInfoDiv.innerHTML +=  _obj[i].city +"(" + countObj[i] + ")" + "<br>"; 
+		{
+			if (i==0 || (i>0 && _obj[i].city != _obj[i-1].city))showInfoDiv.innerHTML +=  _obj[i].city +"(" + countObj[i] + ")" + "<br>"; 
+			if (i >= 10) 
+			{
+				showInfoDiv.innerHTML += ". . ." + "<br>";
+				break;
+			}
+		}
+		
 	}
 
 
