@@ -156,6 +156,7 @@ function showResult(_ind, _objArr)
 		showInitialized = 1;
 		var i;
 		clearCanvasObject();
+		highlightObjStatus = 0;
 		canvasObjectText = [];
 		c_obj = [];
 		showCoord = [];
